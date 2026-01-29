@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gramado + Canela (Semana Santa) — Plan familiar (criba de parques)</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#121823; --muted:#9fb0c3; --text:#e8f0fa;
+      --pill:#1f2a3a; --ok:#1f9d6a; --mid:#d7a300; --bad:#e05a5a; --line:#243247;
+      --link:#7cc4ff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0b0f14, #070a0f);color:var(--text)}
+    header{padding:28px 18px;border-bottom:1px solid var(--line);background:radial-gradient(900px 400px at 20% 0%, rgba(124,196,255,.14), transparent 60%)}
+    .wrap{max-width:1100px;margin:0 auto}
+    h1{margin:0 0 8px 0;font-size:28px;letter-spacing:.2px}
+    .sub{color:var(--muted);line-height:1.4}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);background:rgba(31,42,58,.55);border-radius:999px;color:var(--muted);font-size:13px}
+    main{padding:18px}
+    .controls{display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:12px;margin:16px 0 18px 0}
+    .control{background:rgba(18,24,35,.6);border:1px solid var(--line);border-radius:14px;padding:12px}
+    label{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}
+    input, select{width:100%;padding:10px 10px;border-radius:10px;border:1px solid var(--line);background:#0d131d;color:var(--text)}
+    .grid{display:grid;grid-template-columns:repeat(12, 1fr);gap:14px}
+    .card{grid-column:span 12;background:linear-gradient(180deg, rgba(18,24,35,.92), rgba(18,24,35,.7));border:1px solid var(--line);border-radius:18px;overflow:hidden}
+    .card-head{display:flex;gap:14px;align-items:flex-start;padding:16px}
+    .thumb{width:180px;min-width:180px;aspect-ratio:16/9;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:#0d131d}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .card h2{margin:0 0 6px 0;font-size:20px}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+    .badge{font-size:12px;color:var(--muted);padding:6px 9px;border-radius:999px;background:rgba(31,42,58,.75);border:1px solid rgba(255,255,255,.08)}
+    .badge strong{color:var(--text);font-weight:600}
+    .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .score{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dot.ok{background:var(--ok)} .dot.mid{background:var(--mid)} .dot.bad{background:var(--bad)}
+    .desc{color:var(--text);line-height:1.5;margin-top:8px}
+    .section{padding:0 16px 16px 16px}
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    ul{margin:8px 0 0 18px;color:var(--muted);line-height:1.5}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:9px 11px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(31,42,58,.55);color:var(--text);font-size:13px}
+    .btn:hover{border-color:rgba(124,196,255,.4)}
+    .small{font-size:12px;color:var(--muted)}
+    footer{padding:22px 18px;border-top:1px solid var(--line);color:var(--muted)}
+    @media (max-width: 860px){
+      .controls{grid-template-columns:1fr}
+      .card-head{flex-direction:column}
+      .thumb{width:100%;min-width:auto}
+      .cols{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Gramado + Canela (Semana Santa) — criba de parques (familias con peques)</h1>
+    <div class="sub">
+      Punto de partida para 3 familias (3 parejas + 6 niños, edades objetivo 3 a 10).
+      Foco: <b>atracciones “kid-friendly”, sin filas eternas</b> y con buena logística.
+      <br/>Tip general de Semana Santa: comprá entradas online, llegá a la apertura y evitá “post‑almuerzo” (es el pico).
+    </div>
+    <div class="meta">
+      <span class="pill">🎯 Edad objetivo: 3–10</span>
+      <a class="pill" href="gramado_lagos.html" style="color:var(--text);text-decoration:none">🌊 Ver página: Lagos (Negro + Joaquina)</a>
+      <span class="pill">⏱️ Preferencia: baja espera / alta “capacidad”</span>
+      <span class="pill">🧩 Formato: 1 día = 1 parque (con niños)</span>
+      <span class="pill">🧤 Llevar: abrigo/ropa extra + snacks + cochecito (según parque)</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="controls">
+    <div class="control">
+      <label for="q">Buscar por nombre o palabras (ej. “agua”, “dino”, “interior”)</label>
+      <input id="q" placeholder="Buscar…" />
+    </div>
+    <div class="control">
+      <label for="wait">Evitar colas: mostrar máximo</label>
+      <select id="wait">
+        <option value="any">Cualquiera</option>
+        <option value="low">Baja (ideal)</option>
+        <option value="med">Media o baja</option>
+      </select>
+    </div>
+    <div class="control">
+      <label for="indoor">Clima / interior</label>
+      <select id="indoor">
+        <option value="any">Me da igual</option>
+        <option value="indoor">Interior / cubierto</option>
+        <option value="outdoor">Exterior / al aire libre</option>
+      </select>
+    </div>
+  </section>
+
+  <div class="small">Precios estimados en BRL (R$) y pueden variar por temporada/promos. “Niño” depende de reglas de cada parque (indicadas).</div>
+
+  <section class="grid" id="cards"></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Hecho para planificar rápido. <a href="gramado_lagos.html">Abrir página de Lagos</a>. Próximos pasos sugeridos: (1) elegir 3–4 “must” para los niños, (2) armar agenda día por día,
+    (3) logística: traslados + comidas + si conviene comprar combos.
+  </div>
+</footer>
+
+<script>
+  const parks = [
+    {
+      id:"minimundo",
+      name:"Mini Mundo (Gramado)",
+      indoor:"outdoor",
+      age:"3–10 (ideal)",
+      queue:"low",
+      queueWhy:"Recorrido al aire libre, se mueve fluido; mejor temprano.",
+      highlight:"Ciudad en miniatura (todo 24 veces más pequeño).",
+      prices:[
+        {label:"Adulto (promo online)", value:"R$ 108,00"},
+        {label:"Adulto (base)", value:"R$ 128,00"},
+        {label:"Niño 3–15", value:"R$ 64,00"},
+        {label:"0–2 años", value:"Gratis"}
+      ],
+      links:{
+        web:"https://minimundo.com.br/",
+        tickets:"https://ingressos.minimundo.com.br/produto/vitrine/ingressos-minimundo",
+        video:"https://www.youtube.com/@minimundo-gramado"
+      },
+      yt:"F9jNLwilA8E",
+      tips:[
+        "Llegar a la apertura (9:00) para hacer fotos con menos gente.",
+        "Juego para peques: buscar “easter eggs”/detalles escondidos.",
+        "Si llueve suave igual se disfruta; llevá piloto y calzado cerrado."
+      ],
+      goodFor:["Fotos familiares","Caminata tranquila","Sin ‘adrenalina’"],
+      avoidIf:["Buscan juegos mecánicos fuertes"]
+    },
+    {
+      id:"florybal",
+      name:"Terra Mágica Florybal (Canela)",
+      indoor:"outdoor",
+      age:"4–10 (muy bien) / +",
+      queue:"med",
+      queueWhy:"Es grande (muchas áreas) pero en feriados puede haber filas en juguetes puntuales.",
+      highlight:"Bosque temático con dinos, personajes y shows.",
+      prices:[
+        {label:"Entero (adulto)", value:"R$ 180,00"},
+        {label:"Meia/niño (ver reglas)", value:"R$ 90,00"},
+        {label:"0–3 años", value:"Gratis"}
+      ],
+      links:{
+        web:"https://parqueflorybal.com.br/",
+        tickets:"https://ingresso.parqueterramagicaflorybal.com.br/en/passaporte-terra-magica-florybal",
+        video:"https://www.youtube.com/@parqueterramagicaflorybal10"
+      },
+      yt:"egbjGfU3MXA",
+      tips:[
+        "Llevá cochecito: es un recorrido largo y con subidas/bajadas.",
+        "Priorizar temprano los juguetes con más demanda; dejar shows para media tarde.",
+        "Ropa cómoda y calzado cerrado (es bosque)."
+      ],
+      goodFor:["Dinosaurios","Explorar naturaleza","Muchas paradas para descansar"],
+      avoidIf:["Quieren 100% interior por lluvia fuerte"]
+    },
+    {
+      id:"acquamotion",
+      name:"Acquamotion (Gramado) — parque de aguas termales",
+      indoor:"indoor",
+      age:"3–10 (según altura) / +",
+      queue:"low",
+      queueWhy:"Alta capacidad; ‘colas’ suelen ser más por lockers/entrada. Ideal día de lluvia.",
+      highlight:"Parque acuático cubierto y temático, con piscinas climatizadas.",
+      prices:[
+        {label:"Adulto (18+)", value:"R$ 164,50"},
+        {label:"Niño 4–11", value:"R$ 119,50"},
+        {label:"Joven 12–17", value:"R$ 119,50"}
+      ],
+      links:{
+        web:"https://acquamotion.com.br/",
+        tickets:"https://acquamotion.oneriopass.com/",
+        video:"https://www.youtube.com/@acquamotionoficial"
+      },
+      yt:"jh668mxcGBI",
+      tips:[
+        "Llevar traje de baño, ojotas y toalla (o alquilar/comprar ahí).",
+        "Para peques: apuntar a zonas infantiles (1–5 y 6–12).",
+        "Reservar lockers online/temprano para evitar congestión."
+      ],
+      goodFor:["Día de lluvia","Relajar + jugar","Niños que aman el agua"],
+      avoidIf:["Niños que no quieren agua (o muy friolentos)"]
+    },
+    {
+      id:"viladamonica",
+      name:"Vila da Mônica (Gramado)",
+      indoor:"indoor",
+      age:"3–10 (perfecto)",
+      queue:"med",
+      queueWhy:"Muy popular; mejor comprar online y llegar temprano.",
+      highlight:"Parque infantil temático (Turma da Mônica) con muchas atracciones para edades chicas.",
+      prices:[
+        {label:"Base bilhetería (referencia)", value:"R$ 298,00"},
+        {label:"Promo online (estimado)", value:"Adulto ~R$ 199 / Niño ~R$ 179"}
+      ],
+      links:{
+        web:"https://viladamonica.com.br/",
+        tickets:"https://viladamonica.com.br/ingressos/",
+        video:"https://viladamonica.com.br/ingressos/#"
+      },
+      yt:null,
+      tips:[
+        "Ideal para ‘día full’ con niños chicos: muchas actividades bajo techo.",
+        "Llegar a la apertura para hacer lo más popular sin filas.",
+        "Definir punto de encuentro del grupo (son 3 familias)."
+      ],
+      goodFor:["Peques 3–8","Clima feo","Interacción con personajes"],
+      avoidIf:["Buscan naturaleza/aire libre"]
+    }
+  ];
+
+  const q = document.getElementById('q');
+  const wait = document.getElementById('wait');
+  const indoor = document.getElementById('indoor');
+  const cards = document.getElementById('cards');
+
+  const queueRank = { low:1, med:2, bad:3 };
+  function dotClass(v){ return v==="low" ? "ok" : v==="med" ? "mid" : "bad"; }
+  function queueLabel(v){ return v==="low" ? "Baja" : v==="med" ? "Media" : "Alta"; }
+  function indoorLabel(v){ return v==="indoor" ? "Interior" : "Exterior"; }
+
+  function ytThumb(id){ return `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }
+  function render(){
+    const text = (q.value||"").toLowerCase().trim();
+    const w = wait.value;
+    const i = indoor.value;
+
+    const filtered = parks.filter(p=>{
+      const hay = (p.name+" "+p.highlight+" "+p.tips.join(" ")+" "+p.goodFor.join(" ")).toLowerCase();
+      if(text && !hay.includes(text)) return false;
+      if(w==="low" && p.queue!=="low") return false;
+      if(w==="med" && queueRank[p.queue] > queueRank["med"]) return false;
+      if(i!=="any" && p.indoor!==i) return false;
+      return true;
+    });
+
+    cards.innerHTML = filtered.map(p=>{
+      const thumb = p.yt ? `<img loading="lazy" src="${ytThumb(p.yt)}" alt="${p.name}">` :
+        `<img loading="lazy" src="data:image/svg+xml;charset=utf-8,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='1280' height='720'><rect width='100%' height='100%' fill='#0d131d'/><text x='50%' y='50%' fill='#9fb0c3' font-family='Arial' font-size='42' text-anchor='middle'>Sin video</text></svg>`)}" alt="Sin video">`;
+
+      const priceHtml = p.prices.map(x=>`<div class="badge"><strong>${x.value}</strong> <span>· ${x.label}</span></div>`).join("");
+
+      const ytBtn = p.yt ? `<a class="btn" target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=${p.yt}">▶️ Video</a>` : "";
+      return `
+        <article class="card" data-id="${p.id}">
+          <div class="card-head">
+            <div class="thumb">${thumb}</div>
+            <div style="flex:1;min-width:260px">
+              <h2>${p.name}</h2>
+              <div class="row">
+                <div class="score"><span class="dot ${dotClass(p.queue)}"></span> Colas: <b style="color:var(--text)">${queueLabel(p.queue)}</b> <span class="small">(${p.queueWhy})</span></div>
+              </div>
+              <div class="badges">
+                <span class="badge">👧 Edad: <strong>${p.age}</strong></span>
+                <span class="badge">🏠 Tipo: <strong>${indoorLabel(p.indoor)}</strong></span>
+                <span class="badge">✨ ${p.highlight}</span>
+              </div>
+              <div class="badges">${priceHtml}</div>
+              <div class="desc">${p.highlight}</div>
+
+              <div class="actions">
+                <a class="btn" target="_blank" rel="noopener" href="${p.links.web}">🌐 Web</a>
+                <a class="btn" target="_blank" rel="noopener" href="${p.links.tickets}">🎟️ Entradas</a>
+                ${ytBtn}
+              </div>
+              <div class="small" style="margin-top:10px">Links externos se abren en pestaña nueva.</div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="cols">
+              <div>
+                <div class="small"><b>Tips para ir con niños (y evitar estrés)</b></div>
+                <ul>${p.tips.map(t=>`<li>${t}</li>`).join("")}</ul>
+              </div>
+              <div>
+                <div class="small"><b>Ideal para…</b></div>
+                <ul>${p.goodFor.map(t=>`<li>${t}</li>`).join("")}</ul>
+                <div class="small" style="margin-top:10px"><b>Quizás evitar si…</b></div>
+                <ul>${p.avoidIf.map(t=>`<li>${t}</li>`).join("")}</ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join("");
+
+    if(!filtered.length){
+      cards.innerHTML = `<div class="card" style="padding:18px">No hay resultados con esos filtros. Probá “Cualquiera” en colas o “Me da igual” en interior/exterior.</div>`;
+    }
+  }
+
+  q.addEventListener('input', render);
+  wait.addEventListener('change', render);
+  indoor.addEventListener('change', render);
+  render();
+</script>
+</body>
+</html>
