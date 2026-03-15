@@ -15,8 +15,6 @@
     header{padding:28px 18px;border-bottom:1px solid var(--line);background:radial-gradient(900px 400px at 20% 0%,rgba(124,196,255,.14),transparent 60%)}
     .wrap{max-width:1100px;margin:0 auto}
     h1{margin:0 0 8px 0;font-size:28px;letter-spacing:.2px}
-    h2{margin:0 0 6px 0;font-size:20px}
-    h3{margin:0 0 6px 0;font-size:14px;font-weight:600;color:var(--text)}
     .sub{color:var(--muted);line-height:1.4}
     a{color:var(--link);text-decoration:none}
     a:hover{text-decoration:underline}
@@ -35,7 +33,7 @@
     ul{margin:8px 0 0 18px;color:var(--muted);line-height:1.55}
     footer{padding:22px 18px;border-top:1px solid var(--line);color:var(--muted)}
 
-    /* Summary stats bar */
+    /* Summary stats */
     .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:18px 0}
     .stat{background:rgba(18,24,35,.8);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
     .stat-val{font-size:22px;font-weight:700;color:var(--text);line-height:1.1}
@@ -48,7 +46,7 @@
     .day-name{font-size:16px;font-weight:600}
     .day-date{font-size:13px;color:var(--muted)}
 
-    /* Timeline within a day */
+    /* Timeline */
     .timeline{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
     .slot{display:flex;gap:12px;align-items:flex-start}
     .slot-line{display:flex;flex-direction:column;align-items:center;padding-top:2px;flex-shrink:0}
@@ -68,7 +66,7 @@
     .day-footer{padding:10px 16px 14px 16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
     .day-tip{font-size:12px;color:var(--muted);flex:1;min-width:200px}
 
-    /* Cost card (global) */
+    /* Cost table */
     .cost-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
     .cost-table th{text-align:left;color:var(--muted);font-weight:500;padding:6px 8px;border-bottom:1px solid var(--line)}
     .cost-table td{padding:8px 8px;border-bottom:1px solid rgba(36,50,71,.5);color:var(--muted)}
@@ -87,15 +85,15 @@
 <body>
 <header>
   <div class="wrap">
-    <h1>Itinerario Opción A — 5 días / 4 parques (intensiva)</h1>
+    <h1>Itinerario Opción A — 6 días / 4 parques (intensiva)</h1>
     <div class="sub">
       Semana Santa 2026 · Gramado + Canela · 3 familias (6 adultos + 6 niños, 3–10 años)
-      <br/>Estrategia: llegar temprano a cada parque, alternar exterior/interior para cubrir la lluvia.
+      <br/>Estrategia: llegar temprano a cada parque, alternar exterior/interior para cubrir la lluvia. Regreso a Montevideo el viernes.
     </div>
     <div class="meta">
       <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">⬅️ Ver parques</a>
       <a class="pill" href="gramado_lagos.html" style="color:var(--text);text-decoration:none">🌊 Ver lagos</a>
-      <span class="pill">📅 31 mar – 5 abr 2026</span>
+      <span class="pill">📅 29 mar – 3 abr 2026</span>
       <span class="pill">👨‍👩‍👧‍👦 3 familias · 12 personas</span>
       <span class="pill">🌡️ Otoño en RS: llevar abrigo</span>
     </div>
@@ -107,7 +105,7 @@
   <!-- Summary stats -->
   <div class="summary">
     <div class="stat">
-      <div class="stat-val">5</div>
+      <div class="stat-val">6</div>
       <div class="stat-label">Días de viaje</div>
     </div>
     <div class="stat">
@@ -119,7 +117,7 @@
       <div class="stat-label">Exterior / Interior</div>
     </div>
     <div class="stat">
-      <div class="stat-val">~R$ 6.600</div>
+      <div class="stat-val">~R$ 6.620</div>
       <div class="stat-label">Costo total grupo (entradas)</div>
     </div>
     <div class="stat">
@@ -141,7 +139,7 @@
           <div class="day-num">1</div>
           <div>
             <div class="day-name">Llegada + Instalación</div>
-            <div class="day-date">Lunes 30 de marzo · Viaje + primer contacto con Gramado</div>
+            <div class="day-date">Domingo 29 de marzo · Llegada al mediodía · Gramado</div>
           </div>
         </div>
         <div class="badges" style="margin:0">
@@ -158,9 +156,9 @@
             <div class="connector"></div>
           </div>
           <div class="slot-body">
-            <div class="slot-time">🚀 Mañana / mediodía</div>
-            <div class="slot-title">Viaje y llegada a Gramado</div>
-            <div class="slot-desc">Check-in al alojamiento. Si llegaron temprano, aprovechen para hacer el super: snacks para los días, protector solar, pilas, ropa de lluvia. Gramado tiene varios supermercados bien surtidos.</div>
+            <div class="slot-time">🚀 Mediodía</div>
+            <div class="slot-title">Llegada a Gramado + check-in</div>
+            <div class="slot-desc">Instalarse en el alojamiento. Si hay tiempo antes del check-in, dejar las valijas y hacer el super: snacks para los días, protector solar, ropa de lluvia. Gramado tiene supermercados bien surtidos en el centro.</div>
           </div>
         </div>
         <div class="slot">
@@ -170,8 +168,8 @@
           </div>
           <div class="slot-body">
             <div class="slot-time">🌤️ Tarde (15:00–17:30)</div>
-            <div class="slot-title">Lago Joaquina Rita Bier — paseo express</div>
-            <div class="slot-desc">Primer paseo tranquilo, ideal para "estirar las piernas" después del viaje. Gratis, céntrico, fotogénico. Los niños pueden correr libremente. Duración: 1–1,5 h.</div>
+            <div class="slot-title">Lago Joaquina Rita Bier — primer paseo</div>
+            <div class="slot-desc">Paseo tranquilo para estirar las piernas después del viaje desde Montevideo. Gratis, céntrico, fotogénico. Los niños pueden correr libremente. Duración: 1–1,5 h. Sacar la foto grupal de bienvenida.</div>
           </div>
         </div>
         <div class="slot">
@@ -181,7 +179,7 @@
           <div class="slot-body">
             <div class="slot-time">🌙 Noche</div>
             <div class="slot-title">Cena temprana en el centro (18:30)</div>
-            <div class="slot-desc">Evitar el pico de las 20:00. Gramado tiene opciones de comida variada cerca del centro. Acostarse temprano: mañana siguiente es día de parque.</div>
+            <div class="slot-desc">Evitar el pico de las 20:00. Acostarse temprano: mañana es el primer día de parque.</div>
           </div>
         </div>
       </div>
@@ -198,7 +196,7 @@
           <div class="day-num">2</div>
           <div>
             <div class="day-name">Mini Mundo + Lago Negro</div>
-            <div class="day-date">Martes 31 de marzo · Día exterior · Gramado</div>
+            <div class="day-date">Lunes 30 de marzo · Día exterior · Gramado</div>
           </div>
         </div>
         <div class="badges" style="margin:0">
@@ -227,7 +225,7 @@
             <div class="connector"></div>
           </div>
           <div class="slot-body">
-            <div class="slot-time">🌤️ Tarde (12:30–14:00)</div>
+            <div class="slot-time">🌤️ Mediodía (12:30–14:30)</div>
             <div class="slot-title">Almuerzo + siesta / descanso</div>
             <div class="slot-desc">Comer cerca de Mini Mundo o volver al alojamiento. Evitar parques entre 12:00–14:00 (pico de colas + niños cansados). Siesta corta si los más chicos la necesitan.</div>
           </div>
@@ -240,7 +238,7 @@
           <div class="slot-body">
             <div class="slot-time">🌿 Tarde (15:00–17:30)</div>
             <div class="slot-title">Lago Negro — pedalinho + patos</div>
-            <div class="slot-desc">Paseo relajado alrededor del lago. Pedalinho si les dan las ganas (mejor llegar antes de las 16:00). Los niños adoran los patos y el espacio para correr. Gratis, excepto pedalinho.</div>
+            <div class="slot-desc">Paseo relajado alrededor del lago. Pedalinho si les dan las ganas (mejor llegar antes de las 16:00). Los niños adoran los patos y el espacio para correr. Gratis, excepto pedalinho (~R$ 80–100 el grupo).</div>
           </div>
         </div>
         <div class="slot">
@@ -250,7 +248,7 @@
           <div class="slot-body">
             <div class="slot-time">🌙 Noche</div>
             <div class="slot-title">Cena en Gramado (19:00)</div>
-            <div class="slot-desc">Cena un poco más tarde (los niños ya están cansados, van a comer bien). Mañana siguiente es el día más intenso: Terra Mágica en Canela. Acostarse a hora razonable.</div>
+            <div class="slot-desc">Mañana es el día más intenso: Terra Mágica en Canela. Preparar los bolsos (llevar cochecito) y acostarse a hora razonable.</div>
           </div>
         </div>
       </div>
@@ -271,7 +269,7 @@
           <div class="day-num">3</div>
           <div>
             <div class="day-name">Terra Mágica Florybal (día completo)</div>
-            <div class="day-date">Miércoles 1 de abril · Día exterior · Canela</div>
+            <div class="day-date">Martes 31 de marzo · Día exterior · Canela</div>
           </div>
         </div>
         <div class="badges" style="margin:0">
@@ -303,7 +301,7 @@
           <div class="slot-body">
             <div class="slot-time">🌅 Mañana (9:00 apertura)</div>
             <div class="slot-title">Terra Mágica Florybal — priorizar juguetes con cola</div>
-            <div class="slot-desc">Bosque temático con dinosaurios, personajes y shows. Es grande con subidas y bajadas. Primeras 2 horas: ir directamente a las atracciones con más demanda antes de que se llene. Llevar cochecito.</div>
+            <div class="slot-desc">Bosque temático con dinosaurios, personajes y shows. Es grande con subidas y bajadas. Primeras 2 horas: ir directamente a las atracciones con más demanda antes de que se llene.</div>
           </div>
         </div>
         <div class="slot">
@@ -314,7 +312,7 @@
           <div class="slot-body">
             <div class="slot-time">🌤️ Mediodía (12:00–13:30)</div>
             <div class="slot-title">Almuerzo dentro del parque + descanso</div>
-            <div class="slot-desc">Aprovechar para comer tranquilos mientras el parque está en su pico de visitas. Los shows de media tarde son buena parada para descansar. Llevar snacks propios para reducir gasto en el parque.</div>
+            <div class="slot-desc">Aprovechar para comer tranquilos mientras el parque está en su pico de visitas. Llevar snacks propios para reducir gasto dentro del parque.</div>
           </div>
         </div>
         <div class="slot">
@@ -325,7 +323,7 @@
           <div class="slot-body">
             <div class="slot-time">🌿 Tarde (13:30–17:00)</div>
             <div class="slot-title">Shows + zonas que quedaron pendientes</div>
-            <div class="slot-desc">Media tarde es buen momento para shows y zonas más tranquilas. Si algún niño está cansado, hay espacios para sentarse. Salir antes de las 17:30 para evitar salida masiva.</div>
+            <div class="slot-desc">Media tarde es buen momento para shows y zonas más tranquilas. Salir antes de las 17:30 para evitar la salida masiva.</div>
           </div>
         </div>
         <div class="slot">
@@ -335,13 +333,13 @@
           <div class="slot-body">
             <div class="slot-time">🌙 Noche</div>
             <div class="slot-title">Regreso a Gramado + cena ligera</div>
-            <div class="slot-desc">Noche tranquila: los niños van a estar agotados. Cena rápida o llevar algo al alojamiento. Mañana es día de agua (Acquamotion) — preparar bolsos con traje de baño antes de dormir.</div>
+            <div class="slot-desc">Noche tranquila: los niños van a estar agotados. Mañana es día de agua — preparar bolsos con traje de baño antes de dormir.</div>
           </div>
         </div>
       </div>
 
       <div class="day-footer">
-        <div class="day-tip">💡 <b>Plan lluvia:</b> Terra Mágica no es ideal con lluvia fuerte (es exterior/bosque). Si llueve, intercambiar con el día de Acquamotion (que es interior). Revisar pronóstico la noche anterior.</div>
+        <div class="day-tip">💡 <b>Plan lluvia:</b> Terra Mágica no es ideal con lluvia fuerte (es exterior/bosque). Si llueve, intercambiar con el día de Acquamotion (interior). Revisar el pronóstico la noche anterior.</div>
         <div class="badges" style="margin:0">
           <span class="badge">R$ 180 · adulto</span>
           <span class="badge">R$ 90 · niño (ver reglas del parque)</span>
@@ -357,7 +355,7 @@
           <div class="day-num">4</div>
           <div>
             <div class="day-name">Acquamotion — parque acuático cubierto</div>
-            <div class="day-date">Jueves 2 de abril (Jueves Santo) · Día interior · Gramado</div>
+            <div class="day-date">Miércoles 1 de abril · Día interior · Gramado</div>
           </div>
         </div>
         <div class="badges" style="margin:0">
@@ -378,7 +376,7 @@
           <div class="slot-body">
             <div class="slot-time">🌅 Mañana (apertura)</div>
             <div class="slot-title">Acquamotion — llegar a la apertura</div>
-            <div class="slot-desc">Parque acuático cubierto con piscinas climatizadas. Alta capacidad, colas bajas. Prioridad: hacer los lockers apenas entrar para no perder tiempo. Zonas infantiles 1–5 años y 6–12 años bien diferenciadas.</div>
+            <div class="slot-desc">Parque acuático cubierto con piscinas climatizadas. Alta capacidad, colas bajas. Prioridad al entrar: hacer los lockers antes de ponerse a jugar. Zonas infantiles diferenciadas para 1–5 años y 6–12 años.</div>
           </div>
         </div>
         <div class="slot">
@@ -389,7 +387,7 @@
           <div class="slot-body">
             <div class="slot-time">🌤️ Tarde</div>
             <div class="slot-title">Continuar + almuerzo en el parque o cercanías</div>
-            <div class="slot-desc">Día de agua completo. Los niños más chicos pueden cansarse antes — prever zona de descanso. Los más grandes van a querer más tiempo. No hay apuro en salir si el grupo aguanta bien.</div>
+            <div class="slot-desc">Día de agua completo. Los niños más chicos pueden cansarse antes — prever zona de descanso. No hay apuro si el grupo aguanta bien.</div>
           </div>
         </div>
         <div class="slot">
@@ -399,8 +397,8 @@
           </div>
           <div class="slot-body">
             <div class="slot-time">🛍️ Tarde (17:00+)</div>
-            <div class="slot-title">Centro de Gramado — compras o paseo libre</div>
-            <div class="slot-desc">Tarde libre: el centro de Gramado tiene chocolaterías, tiendas y plazas. Bueno para souvenirs y merienda. Si los niños están agotados, directamente al alojamiento a descansar.</div>
+            <div class="slot-title">Centro de Gramado — chocolaterías + compras</div>
+            <div class="slot-desc">Tarde libre: souvenirs, chocolaterías, plazas. Si los niños están agotados, directamente al alojamiento a descansar.</div>
           </div>
         </div>
         <div class="slot">
@@ -409,14 +407,14 @@
           </div>
           <div class="slot-body">
             <div class="slot-time">🌙 Noche</div>
-            <div class="slot-title">Cena especial (última noche de "todas las familias juntas")</div>
-            <div class="slot-desc">Si mañana alguna familia sale, esta puede ser la cena grupal principal. Reservar con anticipación — en Semana Santa los restaurantes se llenan. Elegir horario 19:00–19:30.</div>
+            <div class="slot-title">Cena en Gramado (19:00)</div>
+            <div class="slot-desc">Mañana es Vila da Mônica — preparar el día con los chicos (van a emocionarse con los personajes de la Mônica).</div>
           </div>
         </div>
       </div>
 
       <div class="day-footer">
-        <div class="day-tip">💡 <b>Llevar:</b> traje de baño, ojotas, toalla (o alquilar ahí). Calzado de agua para los chicos. Crema solar aunque sea interior. Ropa de abrigo para la salida (Gramado en otoño es frío).</div>
+        <div class="day-tip">💡 <b>Llevar:</b> traje de baño, ojotas, toalla (o alquilar ahí). Calzado de agua para los chicos. Ropa de abrigo para la salida (Gramado en otoño es frío al salir del agua).</div>
         <div class="badges" style="margin:0">
           <span class="badge">R$ 164,50 · adulto</span>
           <span class="badge">R$ 119,50 · niño 4–11</span>
@@ -430,8 +428,8 @@
         <div class="day-title">
           <div class="day-num">5</div>
           <div>
-            <div class="day-name">Vila da Mônica + Salida</div>
-            <div class="day-date">Viernes 3 de abril (Viernes Santo) · Día interior · Gramado</div>
+            <div class="day-name">Vila da Mônica</div>
+            <div class="day-date">Jueves 2 de abril (Jueves Santo) · Día interior · Gramado</div>
           </div>
         </div>
         <div class="badges" style="margin:0">
@@ -462,28 +460,97 @@
           </div>
           <div class="slot-body">
             <div class="slot-time">🌤️ Tarde</div>
-            <div class="slot-title">Continuar + fotos con personajes + almuerzo</div>
-            <div class="slot-desc">Si el parque tiene shows, coordinar horarios desde la entrada. Los niños de 3–8 años son los que más van a disfrutar. Los de 9–10 pueden aburrirse antes — tenerlo en cuenta para la salida.</div>
+            <div class="slot-title">Shows + fotos con personajes + almuerzo</div>
+            <div class="slot-desc">Coordinar horarios de shows desde la entrada. Los niños de 3–8 años son los que más disfrutan. Los de 9–10 pueden aburrirse antes — tenerlo en cuenta para la salida.</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line">
-            <div class="slot-dot travel"></div>
+            <div class="slot-dot free"></div>
+            <div class="connector"></div>
           </div>
           <div class="slot-body">
-            <div class="slot-time">🚀 Tarde–noche</div>
-            <div class="slot-title">Check-out + inicio de regreso</div>
-            <div class="slot-desc">Dependiendo del destino final, salir a partir de las 15:00–16:00 para llegar a una hora razonable. Si el viaje es largo, cena rápida en ruta y salida temprana.</div>
+            <div class="slot-time">🌆 Tarde-noche</div>
+            <div class="slot-title">Última vuelta por el centro + Lago Joaquina</div>
+            <div class="slot-desc">Si salen con energía, paseo rápido al Lago Joaquina o chocolatería en el centro. Mañana es el día del regreso: empacar valijas antes de dormir.</div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-line">
+            <div class="slot-dot evening"></div>
+          </div>
+          <div class="slot-body">
+            <div class="slot-time">🌙 Noche</div>
+            <div class="slot-title">Cena grupal especial — última noche en Gramado</div>
+            <div class="slot-desc">Reservar con anticipación en Semana Santa. Horario 19:00–19:30. Mañana: desayuno temprano y salida hacia Montevideo.</div>
           </div>
         </div>
       </div>
 
       <div class="day-footer">
-        <div class="day-tip">💡 <b>Tip final:</b> Vila da Mônica es el más caro del itinerario pero también el más "niño-céntrico". Si alguna familia tiene presupuesto ajustado, puede reemplazarse con un día libre en lagos + centro (gratis). Ver comparativa en otras opciones.</div>
+        <div class="day-tip">💡 <b>Plan lluvia:</b> Vila da Mônica es interior, la lluvia no afecta. Si el día anterior llovió y hubo que cambiar el orden, este es el parque más flexible para mover.</div>
         <div class="badges" style="margin:0">
           <span class="badge">~R$ 199 · adulto (promo online)</span>
           <span class="badge">~R$ 179 · niño (promo online)</span>
         </div>
+      </div>
+    </article>
+
+    <!-- DÍA 6 -->
+    <article class="card">
+      <div class="day-header">
+        <div class="day-title">
+          <div class="day-num">6</div>
+          <div>
+            <div class="day-name">Checkout + Regreso a Montevideo</div>
+            <div class="day-date">Viernes 3 de abril (Viernes Santo) · Día de viaje</div>
+          </div>
+        </div>
+        <div class="badges" style="margin:0">
+          <span class="badge">🚗 Viaje de regreso</span>
+          <span class="badge">💸 Sin parques</span>
+          <span class="badge">⚡ Intensidad: <strong>baja</strong></span>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="slot">
+          <div class="slot-line">
+            <div class="slot-dot morning"></div>
+            <div class="connector"></div>
+          </div>
+          <div class="slot-body">
+            <div class="slot-time">🌅 Mañana</div>
+            <div class="slot-title">Desayuno + checkout del alojamiento</div>
+            <div class="slot-desc">Desayuno tranquilo con tiempo. Revisar que no quede nada olvidado. Dejar las habitaciones según el horario de checkout pactado con el alojamiento.</div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-line">
+            <div class="slot-dot free"></div>
+            <div class="connector"></div>
+          </div>
+          <div class="slot-body">
+            <div class="slot-time">🛍️ Mañana (si hay margen)</div>
+            <div class="slot-title">Últimas compras en el centro</div>
+            <div class="slot-desc">Chocolates, vinho do pinhão, lembranças. Gramado tiene varias tiendas bien surtidas. Paseo rápido de 30–45 min si el horario lo permite antes de salir.</div>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-line">
+            <div class="slot-dot travel"></div>
+            <div class="connector"></div>
+          </div>
+          <div class="slot-body">
+            <div class="slot-time">🚗 Mediodía — inicio del regreso</div>
+            <div class="slot-title">Salida hacia Montevideo</div>
+            <div class="slot-desc">Preparar snacks y entretenimiento para los niños en el auto. Planificar parada para almorzar en ruta. El viaje Gramado–Montevideo es largo — mejor salir descansados y sin apuros.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day-footer">
+        <div class="day-tip">💡 <b>Tip de ruta:</b> evitar salir en el pico del mediodía de Gramado si hay mucho tráfico de turistas saliendo. Mejor 10:00–11:00 o esperar hasta las 13:30–14:00.</div>
       </div>
     </article>
 
@@ -575,7 +642,7 @@
             <div class="small"><b>Clima y contingencias</b></div>
             <ul>
               <li>Otoño en Gramado: frío por las mañanas y noches (8–15°C). Llevar abrigo para todos.</li>
-              <li>Lluvia posible cualquier día: tener siempre el intercambio Acquamotion / Vila da Mônica como plan B.</li>
+              <li>Lluvia posible cualquier día: los días interiores (Acquamotion, Vila da Mônica) son el plan B natural.</li>
               <li>Comprar entradas online con al menos 2–3 días de antelación (Semana Santa tiene alta demanda).</li>
               <li>Cancelación / cambio de fecha: verificar política de cada parque al comprar.</li>
             </ul>
@@ -588,7 +655,7 @@
               <li>1 parque por día máximo: más de 1 es demasiado para los más chicos.</li>
               <li>Siempre llevar snacks: evita filas de cafetería y mejora el humor.</li>
               <li>"Mochila de emergencia" por familia: pañales, ropa extra, botiquín, repelente.</li>
-              <li>Nap-time (siesta): crucial para los de 3–5 años entre las 12:00–14:00.</li>
+              <li>Nap-time: crucial para los de 3–5 años entre las 12:00–14:00.</li>
             </ul>
           </div>
           <div>
@@ -596,7 +663,7 @@
             <ul>
               <li>🟢 Mejor franja: 9:00–12:00 (apertura) — menor cola, mejor temperatura.</li>
               <li>🟡 Medio: 14:00–16:30 — más concurrido pero los niños ya descansaron.</li>
-              <li>🔴 Evitar: 12:00–14:00 en parques (pico de colas + calor + niños cansados).</li>
+              <li>🔴 Evitar: 12:00–14:00 en parques (pico de colas + niños cansados).</li>
               <li>🍽️ Restaurantes: reservar para las 19:00–19:30 (evitar pico 20:00+).</li>
             </ul>
           </div>
@@ -609,8 +676,8 @@
 
 <footer>
   <div class="wrap">
-    Esta es la <b>Opción A</b> — itinerario intensivo con los 4 parques principales.
-    Próximamente: Opción B (versión más relajada / con más días libres) para comparar.
+    Esta es la <b>Opción A</b> — itinerario intensivo: 6 días, 4 parques (29 mar – 3 abr). Regreso a Montevideo el viernes.
+    Próximamente: Opción B para comparar.
     <br/>⬅️ <a href="index.html">Ver parques en detalle</a> · <a href="gramado_lagos.html">Ver lagos y paseos gratuitos</a>
   </div>
 </footer>
