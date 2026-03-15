@@ -70,7 +70,26 @@
     /* Nota de verificación */
     .verify-note{font-size:11px;color:var(--mid);margin-top:6px;padding:5px 8px;background:rgba(215,163,0,.08);border:1px solid rgba(215,163,0,.2);border-radius:8px}
 
+    /* Panel compartir */
+    .share-panel{background:rgba(18,24,35,.9);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:18px}
+    .share-title{font-size:14px;font-weight:700;margin:0 0 4px;color:var(--text)}
+    .share-sub{font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.4}
+    .share-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .share-box{background:rgba(11,15,20,.6);border:1px solid var(--line);border-radius:12px;padding:14px}
+    .share-box-title{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px}
+    .share-textarea{width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:#0d131d;color:var(--text);font-size:11px;font-family:monospace;resize:vertical;min-height:70px;box-sizing:border-box}
+    .share-row{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+    .share-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:rgba(31,42,58,.55);color:var(--text);font-size:12px;cursor:pointer;font-family:inherit}
+    .share-btn:hover{border-color:rgba(124,196,255,.4)}
+    .share-btn.primary{background:rgba(124,196,255,.15);border-color:rgba(124,196,255,.4);color:#7cc4ff}
+    .share-feedback{font-size:11px;color:var(--ok);margin-top:6px;min-height:14px}
+    .share-feedback.error{color:var(--bad)}
+    .import-who{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+    .import-chip{font-size:10px;padding:3px 8px;border-radius:999px;font-weight:600}
+
     @media(max-width:860px){
+      .share-cols{grid-template-columns:1fr}
+    }
       .act-grid{grid-template-columns:1fr}
       .cat-header{grid-column:1/-1}
     }
@@ -88,6 +107,7 @@
       <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">🎯 Ver parques</a>
       <a class="pill" href="itinerario_a.html" style="color:var(--text);text-decoration:none">🅰️ Opción A</a>
       <a class="pill" href="itinerario_b.html" style="color:var(--text);text-decoration:none">🅱️ Opción B</a>
+      <a class="pill" href="restaurantes.html" style="color:var(--text);text-decoration:none">🍽️ Restaurantes</a>
       <span class="pill">📅 29 mar – 3 abr 2026</span>
       <span class="pill">👥 Nano · Ina · Martín · Caro · Emi · Chema</span>
     </div>
@@ -100,6 +120,33 @@
   <div class="ranking">
     <div class="ranking-title">🏆 Ranking de votaciones — en vivo</div>
     <div class="rank-list" id="ranking"></div>
+  </div>
+
+  <!-- Panel compartir votos -->
+  <div class="share-panel">
+    <div class="share-title">📤 Compartir votos entre dispositivos</div>
+    <div class="share-sub">Cada persona exporta su código y lo comparte por WhatsApp. Los demás lo importan para ver el ranking completo del grupo.</div>
+    <div class="share-cols">
+      <div class="share-box">
+        <div class="share-box-title">1 — Exportar mis votos</div>
+        <textarea class="share-textarea" id="export-code" readonly placeholder="Tocá 'Generar código' para ver tu código…"></textarea>
+        <div class="share-row">
+          <button class="share-btn primary" onclick="generateExport()">⬇️ Generar código</button>
+          <button class="share-btn" onclick="copyExport()">📋 Copiar</button>
+        </div>
+        <div class="share-feedback" id="export-feedback"></div>
+      </div>
+      <div class="share-box">
+        <div class="share-box-title">2 — Importar votos de otra persona</div>
+        <textarea class="share-textarea" id="import-code" placeholder="Pegá acá el código de otra persona…"></textarea>
+        <div class="share-row">
+          <button class="share-btn primary" onclick="doImport()">⬆️ Importar</button>
+          <button class="share-btn" onclick="clearImported()">🗑️ Limpiar importados</button>
+        </div>
+        <div class="import-who" id="import-who"></div>
+        <div class="share-feedback" id="import-feedback"></div>
+      </div>
+    </div>
   </div>
 
   <!-- Actividades -->
@@ -589,7 +636,7 @@
   }
 
   function renderRanking(){
-    const v = getVotes();
+    const v = getVotesForRanking();
     const sorted = ACTIVITIES.map(a => ({
       ...a,
       voters: v[a.id] || []
@@ -629,6 +676,110 @@
   function renderAll(){
     renderVotes();
     renderRanking();
+    renderImportWho();
+  }
+
+  // ── Export / Import ──────────────────────────────────────────────
+  // Two localStorage keys:
+  //   v_plan_actividades  → this device's own votes
+  //   v_plan_actividades_imported → merged votes from other devices
+
+  function getImported(){ return JSON.parse(localStorage.getItem('v_'+PAGE+'_imported')||'{}'); }
+  function saveImported(v){ localStorage.setItem('v_'+PAGE+'_imported', JSON.stringify(v)); }
+
+  // Merged view used for rendering ranking
+  function getMergedVotes(){
+    const own = getVotes();
+    const imp = getImported();
+    const merged = {};
+    const allKeys = new Set([...Object.keys(own), ...Object.keys(imp)]);
+    allKeys.forEach(k => {
+      const a = own[k] || [];
+      const b = imp[k] || [];
+      merged[k] = [...new Set([...a, ...b])];
+    });
+    return merged;
+  }
+
+  // Override getVotes for ranking to use merged
+  function getVotesForRanking(){ return getMergedVotes(); }
+
+  function generateExport(){
+    const v = getVotes();
+    const code = btoa(unescape(encodeURIComponent(JSON.stringify(v))));
+    document.getElementById('export-code').value = code;
+    setFeedback('export-feedback', '');
+  }
+
+  function copyExport(){
+    const ta = document.getElementById('export-code');
+    if(!ta.value){ setFeedback('export-feedback','Primero generá el código.','error'); return; }
+    navigator.clipboard.writeText(ta.value).then(()=>{
+      setFeedback('export-feedback','✅ Código copiado al portapapeles');
+    }).catch(()=>{
+      ta.select(); document.execCommand('copy');
+      setFeedback('export-feedback','✅ Copiado (método alternativo)');
+    });
+  }
+
+  function doImport(){
+    const raw = document.getElementById('import-code').value.trim();
+    if(!raw){ setFeedback('import-feedback','Pegá un código primero.','error'); return; }
+    let incoming;
+    try {
+      incoming = JSON.parse(decodeURIComponent(escape(atob(raw))));
+    } catch(e) {
+      setFeedback('import-feedback','❌ Código inválido — copialo de nuevo.','error'); return;
+    }
+    // Merge: add new voters, avoid duplicates
+    const imp = getImported();
+    let added = 0;
+    Object.entries(incoming).forEach(([actId, voters]) => {
+      if(!Array.isArray(voters)) return;
+      if(!imp[actId]) imp[actId] = [];
+      voters.forEach(pid => {
+        if(PEOPLE.find(p => p.id === pid) && !imp[actId].includes(pid)){
+          imp[actId].push(pid);
+          added++;
+        }
+      });
+    });
+    saveImported(imp);
+    document.getElementById('import-code').value = '';
+    const msg = added > 0
+      ? `✅ ${added} voto${added!==1?'s':''} importado${added!==1?'s':''}`
+      : '⚠️ Sin votos nuevos (ya estaban importados)';
+    setFeedback('import-feedback', msg, added > 0 ? '' : 'error');
+    renderAll();
+  }
+
+  function clearImported(){
+    if(!confirm('¿Borrar todos los votos importados? Los votos propios no se tocan.')) return;
+    localStorage.removeItem('v_'+PAGE+'_imported');
+    setFeedback('import-feedback','🗑️ Importados borrados');
+    renderAll();
+  }
+
+  function setFeedback(id, msg, type=''){
+    const el = document.getElementById(id);
+    if(!el) return;
+    el.textContent = msg;
+    el.className = 'share-feedback' + (type==='error' ? ' error' : '');
+  }
+
+  function renderImportWho(){
+    const imp = getImported();
+    const allVoters = new Set();
+    Object.values(imp).forEach(voters => voters.forEach(pid => allVoters.add(pid)));
+    const el = document.getElementById('import-who');
+    if(!el) return;
+    if(!allVoters.size){ el.innerHTML = ''; return; }
+    el.innerHTML = '<span style="font-size:11px;color:var(--muted);margin-right:4px">Importados:</span>' +
+      [...allVoters].map(pid => {
+        const p = PEOPLE.find(x => x.id === pid);
+        if(!p) return '';
+        return `<span class="import-chip" style="background:${p.color}22;color:${p.color};border:1px solid ${p.color}55">${p.name}</span>`;
+      }).join('');
   }
 
   renderAll();

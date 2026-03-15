@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Restaurantes — Gramado + Canela Semana Santa 2026</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#121823; --muted:#9fb0c3; --text:#e8f0fa;
+      --pill:#1f2a3a; --ok:#1f9d6a; --mid:#d7a300; --bad:#e05a5a; --line:#243247;
+      --link:#7cc4ff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0b0f14,#070a0f);color:var(--text)}
+    header{padding:28px 18px;border-bottom:1px solid var(--line);background:radial-gradient(900px 400px at 20% 0%,rgba(251,146,60,.1),transparent 60%)}
+    .wrap{max-width:1100px;margin:0 auto}
+    h1{margin:0 0 8px 0;font-size:28px;letter-spacing:.2px}
+    .sub{color:var(--muted);line-height:1.4}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);background:rgba(31,42,58,.55);border-radius:999px;color:var(--muted);font-size:13px}
+    main{padding:18px}
+    footer{padding:22px 18px;border-top:1px solid var(--line);color:var(--muted)}
+
+    /* Disclaimer */
+    .disclaimer{background:rgba(215,163,0,.08);border:1px solid rgba(215,163,0,.25);border-radius:14px;padding:14px 16px;margin-bottom:18px;font-size:13px;color:var(--mid);line-height:1.5}
+    .disclaimer b{color:#f0c040}
+
+    /* Ranking */
+    .ranking{background:rgba(18,24,35,.9);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:18px}
+    .ranking-title{font-size:14px;font-weight:700;margin:0 0 14px;color:var(--text)}
+    .rank-list{display:flex;flex-direction:column;gap:0}
+    .rank-item{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(36,50,71,.4)}
+    .rank-item:last-child{border-bottom:none}
+    .rank-pos{font-size:16px;text-align:center}
+    .rank-info{min-width:0}
+    .rank-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .rank-sub{font-size:11px;color:var(--muted);margin-top:1px}
+    .rank-who{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;min-height:18px}
+    .rank-chip{font-size:10px;padding:2px 7px;border-radius:999px;font-weight:600}
+    .rank-right{text-align:right;flex-shrink:0}
+    .rank-count{font-size:15px;font-weight:700;color:var(--text)}
+    .rank-max{font-size:11px;color:var(--muted)}
+    .rank-bar-wrap{height:4px;background:rgba(36,50,71,.7);border-radius:2px;margin-top:5px;overflow:hidden}
+    .rank-bar{height:100%;border-radius:2px;background:#fb923c;transition:width .4s ease}
+
+    /* Restaurant grid */
+    .rest-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .zone-header{grid-column:1/-1;display:flex;align-items:center;gap:10px;padding:6px 0;margin-top:8px;border-bottom:1px solid var(--line)}
+    .zone-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+    .zone-tip{font-size:11px;color:var(--muted);opacity:.7}
+
+    .rest-card{background:linear-gradient(180deg,rgba(18,24,35,.95),rgba(18,24,35,.75));border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+    .rest-head{padding:14px 16px 0}
+    .rest-emoji{font-size:24px;line-height:1}
+    .rest-name{font-size:16px;font-weight:700;margin:5px 0 2px}
+    .rest-loc{font-size:12px;color:var(--muted);margin-bottom:6px}
+
+    .tags{display:flex;flex-wrap:wrap;gap:5px;padding:0 16px 8px}
+    .tag{font-size:11px;color:var(--muted);padding:3px 8px;border-radius:999px;background:rgba(31,42,58,.75);border:1px solid rgba(255,255,255,.08)}
+    .tag strong{color:var(--text);font-weight:600}
+    .tag.fast{border-color:rgba(52,211,153,.3);color:#34d399}
+    .tag.pricey{border-color:rgba(215,163,0,.3);color:var(--mid)}
+    .tag.verify{border-color:rgba(215,163,0,.3);color:var(--mid)}
+
+    .rest-desc{padding:0 16px 10px;font-size:13px;color:var(--muted);line-height:1.5;flex:1}
+
+    /* Price block */
+    .price-block{margin:0 16px 12px;background:rgba(31,42,58,.4);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+    .price-row{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+    .price-item{font-size:12px}
+    .price-label{color:var(--muted)}
+    .price-val{color:var(--text);font-weight:600}
+    .price-note{font-size:10px;color:var(--muted);margin-top:5px;opacity:.8}
+
+    .rest-links{padding:0 16px 12px;display:flex;flex-wrap:wrap;gap:6px}
+    .rest-link{display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(31,42,58,.4);color:var(--link);font-size:11px;text-decoration:none}
+    .rest-link:hover{border-color:rgba(124,196,255,.4);text-decoration:none}
+
+    /* Votes */
+    .votes-section{padding:10px 16px 14px;border-top:1px solid var(--line)}
+    .votes-hint{font-size:11px;color:var(--muted);margin-bottom:7px;opacity:.75}
+    .voters{display:flex;flex-wrap:wrap;gap:5px}
+    .voter-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(31,42,58,.4);color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit;transition:border-color .15s,background .15s,color .15s}
+    .voter-btn::before{content:'🤍';font-size:11px}
+    .voter-btn.active::before{content:'❤️';font-size:11px}
+    .votes-who{margin-top:7px;font-size:12px;color:var(--muted);min-height:16px}
+
+    /* Full-width card */
+    .rest-card.full{grid-column:1/-1}
+
+    @media(max-width:860px){
+      .rest-grid{grid-template-columns:1fr}
+      .zone-header{grid-column:1/-1}
+      .price-row{grid-template-columns:1fr 1fr}
+      .rest-card.full{grid-column:1/-1}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Restaurantes y comidas — Gramado + Canela</h1>
+    <div class="sub">
+      Opciones de comida para 6 adultos + 6 niños (3–10 años). Perfil: comer bien, cómodos, sin complicaciones y sin esperar demasiado.
+      <br/>Organizados por zona de actividad del día.
+    </div>
+    <div class="meta">
+      <a class="pill" href="plan_actividades.html" style="color:var(--text);text-decoration:none">🗳️ Votar actividades</a>
+      <a class="pill" href="itinerario_a.html" style="color:var(--text);text-decoration:none">🅰️ Opción A</a>
+      <a class="pill" href="itinerario_b.html" style="color:var(--text);text-decoration:none">🅱️ Opción B</a>
+      <span class="pill">👥 6A + 6N · 12 personas</span>
+      <span class="pill">📅 29 mar – 3 abr 2026</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="disclaimer">
+    <b>⚠️ Nota sobre precios y datos:</b> Los precios son estimados en BRL basados en el perfil habitual de cada tipo de restaurante en Gramado/Canela. Los datos exactos (horarios, disponibilidad para grupos, precios actualizados) <b>hay que confirmarlos antes del viaje</b>, especialmente para Semana Santa donde los locales se llenan. Los links de Maps abren búsquedas actualizadas en tiempo real.
+  </div>
+
+  <!-- Ranking en vivo -->
+  <div class="ranking">
+    <div class="ranking-title">🍽️ Ranking de preferencias — en vivo</div>
+    <div class="rank-list" id="ranking"></div>
+  </div>
+
+  <div class="rest-grid">
+
+    <!-- ZONA: GRAMADO CENTRO -->
+    <div class="zone-header">
+      <span class="zone-title">🏘️ Gramado — Centro · Días 1, 2, 4, 5</span>
+      <span class="zone-tip">Av. Borges de Medeiros y alrededores</span>
+    </div>
+
+    <!-- Gasthof -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🥨</div>
+        <div class="rest-name">Gasthof Gramado</div>
+        <div class="rest-loc">📍 Centro de Gramado · Av. Borges de Medeiros</div>
+      </div>
+      <div class="tags">
+        <span class="tag">🇩🇪 Alemán / Europeo</span>
+        <span class="tag">🍽️ Carta</span>
+        <span class="tag">👨‍👩‍👧 Familiar</span>
+        <span class="tag">👥 Acepta grupos</span>
+      </div>
+      <div class="rest-desc">Restaurante tradicional de Gramado con cocina de influencia alemana y suiza: schnitzel, fondue, carnes y ensaladas. Ambiente cálido y acogedor, típico de la cultura gaúcha-europea. Buen servicio para grupos. Uno de los más conocidos de la ciudad.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Por adulto</div><div class="price-val">~R$ 80–110</div></div>
+          <div class="price-item"><div class="price-label">Por niño</div><div class="price-val">~R$ 35–55</div></div>
+          <div class="price-item"><div class="price-label">Por familia (2A+2N)</div><div class="price-val">~R$ 230–330</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 690–990</div></div>
+        </div>
+        <div class="price-note">⚠️ Estimado — verificar carta actualizada. Reserva recomendada en Semana Santa.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Gasthof+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-rest="gasthof">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('gasthof','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('gasthof','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('gasthof','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('gasthof','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('gasthof','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('gasthof','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Colosseo -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🍝</div>
+        <div class="rest-name">Ristorante Colosseo</div>
+        <div class="rest-loc">📍 Centro de Gramado</div>
+      </div>
+      <div class="tags">
+        <span class="tag">🇮🇹 Italiano</span>
+        <span class="tag">🍕 Pizza + Pasta</span>
+        <span class="tag">👨‍👩‍👧 Muy familiar</span>
+        <span class="tag fast">⚡ Servicio ágil</span>
+      </div>
+      <div class="rest-desc">Restaurante italiano con buena pizza y pastas. Ambiente informal y familiar, popular entre turistas y locales. Los niños comen sin problema (pizza siempre funciona). Buena opción para un almuerzo o cena sin pretensiones. Varios locales de este estilo en el centro de Gramado.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Por adulto</div><div class="price-val">~R$ 65–90</div></div>
+          <div class="price-item"><div class="price-label">Por niño</div><div class="price-val">~R$ 30–45</div></div>
+          <div class="price-item"><div class="price-label">Por familia (2A+2N)</div><div class="price-val">~R$ 190–270</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 570–810</div></div>
+        </div>
+        <div class="price-note">⚠️ Estimado — verificar. Pizzas compartidas pueden bajar el precio total.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Ristorante+Colosseo+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=restaurante+italiano+Gramado+RS" target="_blank" rel="noopener">🔍 Italianos en Gramado</a>
+      </div>
+      <div class="votes-section" data-rest="colosseo">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('colosseo','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('colosseo','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('colosseo','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('colosseo','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('colosseo','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('colosseo','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Buffet por quilo -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🥗</div>
+        <div class="rest-name">Restaurante por Quilo (buffet)</div>
+        <div class="rest-loc">📍 Centro de Gramado · varios locales</div>
+      </div>
+      <div class="tags">
+        <span class="tag">🍛 Brasileiro / variado</span>
+        <span class="tag fast">⚡ Inmediato</span>
+        <span class="tag">💚 Ideal con niños</span>
+        <span class="tag">👥 Grupos sin problema</span>
+      </div>
+      <div class="rest-desc">El formato "por quilo" es el más práctico con niños: cada uno elige exactamente lo que quiere (arroz, feijão, carne, ensalada, milanesa, etc.), paga por el peso y come de inmediato. Sin espera, sin menú, sin niños impacientes. En Gramado hay varios restaurantes de este tipo en el centro. Ideal para almuerzos rápidos entre actividades.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Por adulto (~450g)</div><div class="price-val">~R$ 40–60</div></div>
+          <div class="price-item"><div class="price-label">Por niño (~250g)</div><div class="price-val">~R$ 20–35</div></div>
+          <div class="price-item"><div class="price-label">Por familia (2A+2N)</div><div class="price-val">~R$ 120–190</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 360–570</div></div>
+        </div>
+        <div class="price-note">💚 Opción más económica del viaje. Precio varía según cuánto se sirve cada uno.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=restaurante+por+quilo+Gramado" target="_blank" rel="noopener">📍 Buscar en Maps</a>
+      </div>
+      <div class="votes-section" data-rest="buffet">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('buffet','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('buffet','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('buffet','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('buffet','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('buffet','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('buffet','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Pizzaria Mágica del Héctor -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🍕</div>
+        <div class="rest-name">Pizzería Mágica del Héctor</div>
+        <div class="rest-loc">📍 Gramado · confirmar dirección exacta</div>
+      </div>
+      <div class="tags">
+        <span class="tag">🍕 Pizza</span>
+        <span class="tag">🪄 Show de magia incluido</span>
+        <span class="tag">🎉 Experiencia</span>
+        <span class="tag">👧 Niños encantados</span>
+      </div>
+      <div class="rest-desc">Pizzería con show de magia: el Héctor hace trucos mientras prepara y sirve las pizzas. Experiencia única que combina cena y entretenimiento. Los niños van a estar ocupados e impacientes — en el buen sentido. Confirmar si hay reserva previa requerida y duración del show.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Por adulto</div><div class="price-val">A confirmar</div></div>
+          <div class="price-item"><div class="price-label">Por niño</div><div class="price-val">A confirmar</div></div>
+          <div class="price-item"><div class="price-label">Por familia (2A+2N)</div><div class="price-val">A confirmar</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">A confirmar</div></div>
+        </div>
+        <div class="price-note">⚠️ Buscar precios actuales y si acepta grupos de 12. Reservar con anticipación en Semana Santa.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=Pizzaria+Magica+Hector+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-rest="hector">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('hector','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('hector','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('hector','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('hector','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('hector','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('hector','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- ZONA: LAGO NEGRO -->
+    <div class="zone-header">
+      <span class="zone-title">🦆 Zona Lago Negro · Día 2 (almuerzo post-Mini Mundo / merienda)</span>
+    </div>
+
+    <!-- Restaurante Lago Negro -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🏡</div>
+        <div class="rest-name">Restaurantes frente al Lago Negro</div>
+        <div class="rest-loc">📍 Av. das Hortênsias, Gramado</div>
+      </div>
+      <div class="tags">
+        <span class="tag">🌳 Vista al lago</span>
+        <span class="tag">☕ Café + comida</span>
+        <span class="tag">🍰 Postres</span>
+      </div>
+      <div class="rest-desc">Alrededor del Lago Negro hay varios cafés y restaurantes con vista al agua. Bueno para una merienda o almuerzo liviano después del paseo. No todos son aptos para grupos grandes, pero en Semana Santa hay bastante oferta. Buen momento para un chocolate caliente o un strudel de manzana típico de Gramado.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Merienda / café</div><div class="price-val">~R$ 25–50 /persona</div></div>
+          <div class="price-item"><div class="price-label">Almuerzo liviano</div><div class="price-val">~R$ 45–70 /persona</div></div>
+          <div class="price-item"><div class="price-label">Familia (merienda)</div><div class="price-val">~R$ 80–160</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 300–600</div></div>
+        </div>
+        <div class="price-note">⚠️ Rango amplio según el local elegido. Confirmar capacidad para 12.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=restaurante+Lago+Negro+Gramado" target="_blank" rel="noopener">📍 Maps zona Lago Negro</a>
+      </div>
+      <div class="votes-section" data-rest="lagoNegro">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('lagoNegro','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('lagoNegro','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('lagoNegro','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('lagoNegro','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('lagoNegro','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('lagoNegro','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Lanche rápido / picnic -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🧺</div>
+        <div class="rest-name">Picnic + lanche propio (Lago Negro)</div>
+        <div class="rest-loc">📍 Orilla del Lago Negro</div>
+      </div>
+      <div class="tags">
+        <span class="tag fast">⚡ Sin espera</span>
+        <span class="tag">💚 Económico</span>
+        <span class="tag">🧒 Niños libres</span>
+      </div>
+      <div class="rest-desc">Opción sin restaurante: comprar en el super o en una panadería del centro y hacer un picnic en el lago. Los niños comen cuando quieren, corren libremente y no hay mesero que esperar. Frutas, sándwiches, galletas, jugo. Gramado tiene buenas panaderías con opciones frescas.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Por persona</div><div class="price-val">~R$ 15–30</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 180–360</div></div>
+          <div class="price-item"><div class="price-label">Por familia</div><div class="price-val">~R$ 60–120</div></div>
+          <div class="price-item"><div class="price-label">Vs restaurante</div><div class="price-val">Ahorro ~60%</div></div>
+        </div>
+        <div class="price-note">💚 Comprar el día anterior o a la mañana temprano. Llevar mantas y bolsas de basura.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=padaria+Gramado+RS" target="_blank" rel="noopener">📍 Panaderías en Maps</a>
+      </div>
+      <div class="votes-section" data-rest="picnic">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('picnic','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('picnic','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('picnic','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('picnic','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('picnic','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('picnic','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- ZONA: CANELA -->
+    <div class="zone-header">
+      <span class="zone-title">🌲 Canela — Días de Caracol, Terra Mágica y Catedral · Días 2–3 (Opción A) / Día 2 (Opción B)</span>
+    </div>
+
+    <!-- Cantina Canela centro -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🏡</div>
+        <div class="rest-name">Cantinas y restaurantes del centro de Canela</div>
+        <div class="rest-loc">📍 Centro de Canela · cerca de la Catedral de Pedra</div>
+      </div>
+      <div class="tags">
+        <span class="tag">🇮🇹 Italiano / colonial</span>
+        <span class="tag">🏡 Ambiente familiar</span>
+        <span class="tag">👥 Grupos</span>
+      </div>
+      <div class="rest-desc">El centro de Canela tiene varias cantinas de estilo colonial con cocina italiana y gaucha. Ambiente tranquilo, mesas amplias, buenos precios. Ideal para el almuerzo después de Parque do Caracol o Catedral de Pedra. Buscar las que tengan espacio exterior para que los chicos se muevan un poco.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Por adulto</div><div class="price-val">~R$ 55–80</div></div>
+          <div class="price-item"><div class="price-label">Por niño</div><div class="price-val">~R$ 25–40</div></div>
+          <div class="price-item"><div class="price-label">Por familia (2A+2N)</div><div class="price-val">~R$ 160–240</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 480–720</div></div>
+        </div>
+        <div class="price-note">⚠️ Confirmar capacidad para grupos. Llegada temprana (12:00) para evitar espera.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=restaurante+familiar+centro+Canela+RS" target="_blank" rel="noopener">📍 Restaurantes Canela</a>
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=cantina+Canela+RS" target="_blank" rel="noopener">🔍 Cantinas Canela</a>
+      </div>
+      <div class="votes-section" data-rest="canelaCentro">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('canelaCentro','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('canelaCentro','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('canelaCentro','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('canelaCentro','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('canelaCentro','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('canelaCentro','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Cerca de Caracol -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">💧</div>
+        <div class="rest-name">Restaurantes cerca del Parque do Caracol</div>
+        <div class="rest-loc">📍 Área Parque do Caracol, Canela</div>
+      </div>
+      <div class="tags">
+        <span class="tag">🌿 Zona serrana</span>
+        <span class="tag">🥩 Carne / típico</span>
+        <span class="tag fast">⚡ Práctico post-parque</span>
+      </div>
+      <div class="rest-desc">En la zona del Parque do Caracol y alrededores hay restaurantes orientados a turistas. Conveniente para comer directamente después de la visita a la cascada sin necesidad de volver al centro. Mezcla de comida casera, carnes y opciones rápidas. Calidad variable — buscar el que tenga mejor rating en Maps al llegar.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Por adulto</div><div class="price-val">~R$ 60–85</div></div>
+          <div class="price-item"><div class="price-label">Por niño</div><div class="price-val">~R$ 25–40</div></div>
+          <div class="price-item"><div class="price-label">Por familia (2A+2N)</div><div class="price-val">~R$ 170–250</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 510–750</div></div>
+        </div>
+        <div class="price-note">⚠️ Zona turística — precios más altos que el centro. Consultar menú antes de sentarse.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=restaurante+Parque+Caracol+Canela" target="_blank" rel="noopener">📍 Maps zona Caracol</a>
+      </div>
+      <div class="votes-section" data-rest="caracolRest">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('caracolRest','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('caracolRest','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('caracolRest','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('caracolRest','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('caracolRest','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('caracolRest','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Terra Mágica interno -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🦕</div>
+        <div class="rest-name">Restaurante / lanchonete dentro de Terra Mágica</div>
+        <div class="rest-loc">📍 Dentro del parque · Canela</div>
+      </div>
+      <div class="tags">
+        <span class="tag">🎢 Dentro del parque</span>
+        <span class="tag fast">⚡ Sin salir del parque</span>
+        <span class="tag pricey">💸 Precio parque (más caro)</span>
+      </div>
+      <div class="rest-desc">Terra Mágica Florybal tiene opciones de comida dentro del parque: lanchonetes y restaurante. Práctico para no perder tiempo saliendo, pero los precios dentro de los parques temáticos suelen ser un 30–50% más altos que afuera. Llevar snacks propios para complementar y bajar el gasto total.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Lanche (hamburguesa+bebida)</div><div class="price-val">~R$ 40–65 /persona</div></div>
+          <div class="price-item"><div class="price-label">Prato do dia</div><div class="price-val">~R$ 60–90 /persona</div></div>
+          <div class="price-item"><div class="price-label">Por familia</div><div class="price-val">~R$ 200–310</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 600–930</div></div>
+        </div>
+        <div class="price-note">💡 Llevar snacks propios + agua para reducir consumo interno. Consultar mapa del parque para ubicación de las opciones.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://parqueflorybal.com.br/" target="_blank" rel="noopener">🌐 Web Terra Mágica</a>
+      </div>
+      <div class="votes-section" data-rest="terraMagicaRest">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('terraMagicaRest','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('terraMagicaRest','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('terraMagicaRest','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('terraMagicaRest','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('terraMagicaRest','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('terraMagicaRest','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- ZONA: CENAS ESPECIALES -->
+    <div class="zone-header">
+      <span class="zone-title">🌙 Cenas especiales — Noches señaladas</span>
+      <span class="zone-tip">Reservar con anticipación · Semana Santa se llena</span>
+    </div>
+
+    <!-- Fondue -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🫕</div>
+        <div class="rest-name">Fondue en Gramado (experiencia)</div>
+        <div class="rest-loc">📍 Varios restaurantes en Gramado</div>
+      </div>
+      <div class="tags">
+        <span class="tag pricey">💸 Más caro</span>
+        <span class="tag">🧀 Fondue de queso y chocolate</span>
+        <span class="tag">🎉 Experiencia</span>
+        <span class="tag">🌡️ Ideal en noche fría</span>
+      </div>
+      <div class="rest-desc">El fondue es la tradición gastronómica más famosa de Gramado. Hay decenas de restaurantes especializados. Ideal para una de las cenas especiales del viaje — lento por naturaleza (los chicos lo disfrutan si están con energía), pero la experiencia vale. Fondue de queso, carne y chocolate de postre. Gramado en otoño pide una noche así.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Por adulto</div><div class="price-val">~R$ 100–160</div></div>
+          <div class="price-item"><div class="price-label">Por niño</div><div class="price-val">~R$ 50–80</div></div>
+          <div class="price-item"><div class="price-label">Por familia (2A+2N)</div><div class="price-val">~R$ 300–480</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 900–1.440</div></div>
+        </div>
+        <div class="price-note">⚠️ Rango amplio según restaurante. Reservar al menos 3–4 días antes en Semana Santa. No recomendado si los chicos están muy cansados (proceso lento).</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=restaurante+fondue+Gramado" target="_blank" rel="noopener">📍 Fondues en Maps</a>
+      </div>
+      <div class="votes-section" data-rest="fondue">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('fondue','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('fondue','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('fondue','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('fondue','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('fondue','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('fondue','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Churrascaria rodízio -->
+    <div class="rest-card">
+      <div class="rest-head">
+        <div class="rest-emoji">🥩</div>
+        <div class="rest-name">Churrascaria Rodízio</div>
+        <div class="rest-loc">📍 Gramado · varios locales</div>
+      </div>
+      <div class="tags">
+        <span class="tag">🥩 Churrasco gaucho</span>
+        <span class="tag">♾️ Ilimitado (rodízio)</span>
+        <span class="tag">👥 Ideal para grupos</span>
+        <span class="tag fast">⚡ Siempre hay carne</span>
+      </div>
+      <div class="rest-desc">El rodízio de churrasco es perfecto para grupos grandes: precio fijo, unlimited, meseros circulan con espetones de carne directamente a la mesa. Los niños pueden elegir entre las variedades (costilla, frango, lingüiça). Río Grande do Sul es la meca del churrasco en Brasil — calidad garantizada.</div>
+      <div class="price-block">
+        <div class="price-row">
+          <div class="price-item"><div class="price-label">Por adulto</div><div class="price-val">~R$ 80–110</div></div>
+          <div class="price-item"><div class="price-label">Por niño (&lt;10 años)</div><div class="price-val">~R$ 35–55</div></div>
+          <div class="price-item"><div class="price-label">Por familia (2A+2N)</div><div class="price-val">~R$ 230–330</div></div>
+          <div class="price-item"><div class="price-label">Grupo completo</div><div class="price-val">~R$ 690–990</div></div>
+        </div>
+        <div class="price-note">⚠️ Niños menores de cierta edad suelen tener descuento o entran gratis según el local. Consultar. Reservar para grupos de 12.</div>
+      </div>
+      <div class="rest-links">
+        <a class="rest-link" href="https://www.google.com/maps/search/?api=1&query=churrascaria+rodizio+Gramado+RS" target="_blank" rel="noopener">📍 Churrascarias en Maps</a>
+      </div>
+      <div class="votes-section" data-rest="churrasco">
+        <div class="votes-hint">Tocá tu nombre si te gusta esta opción</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('churrasco','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('churrasco','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('churrasco','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('churrasco','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('churrasco','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('churrasco','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+  </div><!-- /rest-grid -->
+</main>
+
+<footer>
+  <div class="wrap">
+    Todos los precios son estimados en BRL — confirmar antes del viaje. Reservar con anticipación en Semana Santa.
+    <br/>⬅️ <a href="index.html">Parques</a> · <a href="plan_actividades.html">Votar actividades</a> · <a href="itinerario_a.html">Opción A</a> · <a href="itinerario_b.html">Opción B</a>
+  </div>
+</footer>
+
+<script>
+  const PAGE = 'restaurantes';
+
+  const PEOPLE = [
+    {id:'nano',   name:'Nano',   color:'#60a5fa'},
+    {id:'ina',    name:'Ina',    color:'#f472b6'},
+    {id:'martin', name:'Martín', color:'#34d399'},
+    {id:'caro',   name:'Caro',   color:'#fb923c'},
+    {id:'emi',    name:'Emi',    color:'#22d3ee'},
+    {id:'chema',  name:'Chema',  color:'#a78bfa'},
+  ];
+
+  const RESTAURANTS = [
+    {id:'gasthof',        name:'Gasthof Gramado',                sub:'Alemán · Centro Gramado',     emoji:'🥨'},
+    {id:'colosseo',       name:'Colosseo Ristorante',            sub:'Italiano · Centro Gramado',    emoji:'🍝'},
+    {id:'buffet',         name:'Buffet por Quilo',               sub:'Variado · Centro Gramado',     emoji:'🥗'},
+    {id:'hector',         name:'Pizzería Mágica del Héctor',     sub:'Pizza + show · Gramado',       emoji:'🍕'},
+    {id:'lagoNegro',      name:'Restaurantes Lago Negro',        sub:'Café + comida · Lago Negro',   emoji:'🏡'},
+    {id:'picnic',         name:'Picnic propio (Lago Negro)',      sub:'Merienda · Sin restaurante',   emoji:'🧺'},
+    {id:'canelaCentro',   name:'Cantinas centro de Canela',      sub:'Italiano / gaucho · Canela',   emoji:'🏡'},
+    {id:'caracolRest',    name:'Restaurantes zona Caracol',      sub:'Turístico · Canela',           emoji:'💧'},
+    {id:'terraMagicaRest',name:'Lanchonete Terra Mágica',        sub:'Dentro del parque · Canela',   emoji:'🦕'},
+    {id:'fondue',         name:'Fondue (experiencia)',            sub:'Especialidad · Gramado noche', emoji:'🫕'},
+    {id:'churrasco',      name:'Churrascaria Rodízio',           sub:'Carne ilimitada · Gramado',    emoji:'🥩'},
+  ];
+
+  const MEDALS = ['🥇','🥈','🥉'];
+
+  function getVotes(){ return JSON.parse(localStorage.getItem('v_'+PAGE)||'{}'); }
+  function saveVotes(v){ localStorage.setItem('v_'+PAGE, JSON.stringify(v)); }
+
+  function toggleVote(restId, personId){
+    const v = getVotes();
+    if(!v[restId]) v[restId] = [];
+    const i = v[restId].indexOf(personId);
+    if(i >= 0) v[restId].splice(i,1); else v[restId].push(personId);
+    saveVotes(v);
+    renderAll();
+  }
+
+  function renderVotes(){
+    const v = getVotes();
+    document.querySelectorAll('.votes-section').forEach(sec => {
+      const restId = sec.dataset.rest;
+      const restVotes = v[restId] || [];
+      sec.querySelectorAll('.voter-btn').forEach(btn => {
+        const pid = btn.dataset.person;
+        const person = PEOPLE.find(p => p.id === pid);
+        const active = restVotes.includes(pid);
+        btn.classList.toggle('active', active);
+        if(active){
+          btn.style.borderColor = person.color + 'aa';
+          btn.style.background  = person.color + '22';
+          btn.style.color       = person.color;
+        } else {
+          btn.style.borderColor = '';
+          btn.style.background  = '';
+          btn.style.color       = '';
+        }
+      });
+      const whoEl = sec.querySelector('.votes-who');
+      if(whoEl){
+        if(!restVotes.length){ whoEl.textContent=''; return; }
+        const names = restVotes.map(id => PEOPLE.find(p => p.id===id)?.name).filter(Boolean);
+        whoEl.textContent = '❤️ ' + names.join(', ');
+      }
+    });
+  }
+
+  function renderRanking(){
+    const v = getVotes();
+    const sorted = RESTAURANTS.map(r => ({
+      ...r, voters: v[r.id] || []
+    })).sort((a,b) => b.voters.length - a.voters.length);
+
+    document.getElementById('ranking').innerHTML = sorted.map((r, i) => {
+      const count = r.voters.length;
+      const pct = Math.round((count / 6) * 100);
+      const medal = i < 3 && count > 0 ? MEDALS[i] : `<span style="color:var(--muted);font-size:12px">${i+1}</span>`;
+      const chips = r.voters.map(pid => {
+        const p = PEOPLE.find(x => x.id === pid);
+        if(!p) return '';
+        return `<span class="rank-chip" style="background:${p.color}22;color:${p.color};border:1px solid ${p.color}55">${p.name}</span>`;
+      }).join('');
+      return `
+        <div class="rank-item">
+          <div class="rank-pos">${medal}</div>
+          <div class="rank-info">
+            <div class="rank-name">${r.emoji} ${r.name}</div>
+            <div class="rank-sub">${r.sub}</div>
+            <div class="rank-bar-wrap"><div class="rank-bar" style="width:${pct}%"></div></div>
+            <div class="rank-who">${chips}</div>
+          </div>
+          <div class="rank-right">
+            <div class="rank-count">${count}</div>
+            <div class="rank-max">de 6</div>
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  function renderAll(){ renderVotes(); renderRanking(); }
+  renderAll();
+</script>
+</body>
+</html>

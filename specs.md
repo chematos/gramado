@@ -114,6 +114,52 @@ Cada día de itinerario tiene una sección de "me gusta" con 6 botones personale
 - Día 5: Vila da Mônica (Jueves Santo)
 - Día 6: Checkout + regreso Montevideo
 
+---
+
+## Especificaciones de restaurantes
+
+### Perfil del grupo
+- **Tamaño:** 6 adultos + 6 niños (12 personas en total, siempre)
+- **Niños:** 6, edades 3–10 años — se impacientan con demoras largas
+- **Estilo:** Familias de clase media, comen bien pero sin extravagancia ni precios altos
+- **Formato preferido:** Lugares cómodos, familiares, con servicio ágil (buffet o platos que salen rápido)
+- **Evitar:** Restaurantes de alta cocina / fine dining, lugares con demoras largas, locales muy pequeños sin espacio para grupo grande
+
+### Criterios de selección
+- Capacidad para grupos de 12 (consultar reserva previa cuando aplique)
+- Precio estimado moderado: ~R$ 40–90 por persona adulta, ~R$ 20–40 por niño
+- Buena para niños: menú infantil, espacio amplio, ambiente informal
+- Servicio relativamente rápido (no más de 30–40 min de espera para comer)
+- Dentro o cerca de la zona de actividad del día
+
+### Organización por zona
+Los restaurantes se agrupan por la zona de actividad del día:
+- **Gramado centro** — días con Lago Joaquina, Mini Mundo, chocolates, centro
+- **Zona Lago Negro** — días de paseo por el lago
+- **Zona Acquamotion** — día del parque acuático
+- **Canela centro** — días de Caracol, Catedral, Terra Mágica
+- **Opciones de noche** — cenas grupales especiales (reservar con anticipación en Semana Santa)
+- **Opciones en ruta** — snacks y paradas rápidas entre actividades
+
+### Información a mostrar por restaurante
+- Nombre, especialidad, zona/dirección
+- Precio estimado: por familia (2A+2N) y por grupo completo (6A+6N)
+- Link web oficial + Maps
+- Si requiere reserva + horarios
+- Evaluación de adecuación para niños y grupos grandes
+
+---
+
+## Páginas del proyecto (actualizadas)
+
+### 5. `plan_actividades.html` — Votación de actividades
+**Scope:** Todas las actividades posibles del viaje como unidades votables independientes. Ranking en vivo. Alimenta el itinerario definitivo.
+
+### 6. `restaurantes.html` — Opciones de comida por zona *(próxima)*
+**Scope:** Restaurantes y opciones de comida organizados por zona de actividad. Con votos por persona, precio estimado, maps y links.
+
+---
+
 ## Próximas páginas planificadas
 
 - `itinerario_c.html` — Opción C (si se crea una tercera variante)
