@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Itinerario Definitivo — Gramado + Canela (Semana Santa 2026)</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#121823; --muted:#9fb0c3; --text:#e8f0fa;
+      --pill:#1f2a3a; --ok:#1f9d6a; --mid:#d7a300; --bad:#e05a5a; --line:#243247;
+      --link:#7cc4ff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0b0f14,#070a0f);color:var(--text)}
+    header{padding:28px 18px;border-bottom:1px solid var(--line);background:radial-gradient(900px 400px at 20% 0%,rgba(251,191,36,.12),transparent 60%)}
+    .wrap{max-width:1100px;margin:0 auto}
+    h1{margin:0 0 8px 0;font-size:28px;letter-spacing:.2px}
+    .sub{color:var(--muted);line-height:1.4}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);background:rgba(31,42,58,.55);border-radius:999px;color:var(--muted);font-size:13px}
+    main{padding:18px}
+    footer{padding:22px 18px;border-top:1px solid var(--line);color:var(--muted)}
+
+    /* Summary banner */
+    .summary{background:rgba(251,191,36,.07);border:1px solid rgba(251,191,36,.2);border-radius:18px;padding:18px;margin-bottom:20px}
+    .summary-title{font-size:13px;font-weight:700;color:var(--mid);margin:0 0 12px}
+    .summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+    .summary-stat{background:rgba(11,15,20,.5);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+    .stat-val{font-size:20px;font-weight:700;color:var(--text)}
+    .stat-lbl{font-size:11px;color:var(--muted);margin-top:2px}
+
+    /* Cost table */
+    .cost-section{margin-bottom:20px}
+    .cost-table{width:100%;border-collapse:collapse;font-size:13px}
+    .cost-table th{text-align:left;color:var(--muted);font-weight:600;padding:8px 10px;border-bottom:1px solid var(--line)}
+    .cost-table td{padding:8px 10px;border-bottom:1px solid rgba(36,50,71,.4);color:var(--text)}
+    .cost-table tr:last-child td{border-bottom:none}
+    .cost-table .total td{font-weight:700;color:var(--text);border-top:1px solid var(--line)}
+    .cost-table .free td:last-child{color:var(--ok)}
+
+    /* Day cards */
+    .day-card{background:linear-gradient(180deg,rgba(18,24,35,.95),rgba(18,24,35,.75));border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:14px}
+    .day-header{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+    .day-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;font-size:14px;font-weight:700;flex-shrink:0}
+    .day-info{flex:1;min-width:0}
+    .day-title{font-size:17px;font-weight:700;margin:0 0 2px}
+    .day-date{font-size:12px;color:var(--muted)}
+    .day-cost{font-size:13px;font-weight:600;color:var(--mid);white-space:nowrap}
+    .day-body{padding:16px 18px}
+
+    /* Timeline */
+    .timeline{display:flex;flex-direction:column;gap:0;padding-left:18px;border-left:2px solid var(--line);margin:0 0 14px}
+    .slot{position:relative;padding:0 0 18px 20px}
+    .slot:last-child{padding-bottom:0}
+    .slot-dot{position:absolute;left:-9px;top:3px;width:16px;height:16px;border-radius:50%;border:2px solid var(--bg);flex-shrink:0}
+    .slot-time{font-size:11px;color:var(--muted);font-weight:600;margin-bottom:2px;letter-spacing:.3px}
+    .slot-title{font-size:14px;font-weight:700;margin:0 0 3px}
+    .slot-desc{font-size:13px;color:var(--muted);line-height:1.4}
+    .slot-links{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+    .slot-link{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:7px;border:1px solid rgba(255,255,255,.09);background:rgba(31,42,58,.35);color:var(--link);font-size:11px;text-decoration:none}
+    .slot-link:hover{border-color:rgba(124,196,255,.35);text-decoration:none}
+
+    /* Sections within day */
+    .day-section-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.7px;margin:14px 0 8px}
+    .rain-box{background:rgba(96,165,250,.06);border:1px solid rgba(96,165,250,.2);border-radius:10px;padding:10px 12px;font-size:12px;color:var(--muted);line-height:1.4}
+    .rain-box strong{color:#93c5fd}
+    .tips-box{background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.2);border-radius:10px;padding:10px 12px;font-size:12px;color:var(--muted);line-height:1.4}
+    .tips-box strong{color:#6ee7b7}
+
+    /* Votes */
+    .votes-section{padding:14px 18px;border-top:1px solid var(--line)}
+    .votes-hint{font-size:11px;color:var(--muted);margin-bottom:7px;opacity:.75}
+    .voters{display:flex;flex-wrap:wrap;gap:5px}
+    .voter-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(31,42,58,.4);color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit;transition:border-color .15s,background .15s,color .15s}
+    .voter-btn::before{content:'🤍';font-size:11px}
+    .voter-btn.active::before{content:'❤️';font-size:11px}
+    .votes-who{margin-top:7px;font-size:12px;color:var(--muted);min-height:16px}
+
+    /* Badges */
+    .badges{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+    .badge{font-size:11px;color:var(--muted);padding:4px 8px;border-radius:999px;background:rgba(31,42,58,.75);border:1px solid rgba(255,255,255,.08)}
+    .badge strong{color:var(--text);font-weight:600}
+    .vote-result{font-size:11px;padding:3px 8px;border-radius:999px;font-weight:700;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.3);color:var(--mid)}
+
+    @media(max-width:860px){
+      .summary-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:520px){
+      .summary-grid{grid-template-columns:1fr}
+      .day-header{flex-wrap:wrap}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>⭐ Itinerario Definitivo — Gramado + Canela</h1>
+    <div class="sub">
+      Armado en base a las votaciones del grupo. 6 días, 29 mar – 3 abr 2026.
+      <br/>3 familias · 6 adultos + 6 niños (3–10 años) · salida desde Montevideo.
+    </div>
+    <div class="meta">
+      <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">🎯 Ver parques</a>
+      <a class="pill" href="itinerario_a.html" style="color:var(--text);text-decoration:none">🅰️ Opción A</a>
+      <a class="pill" href="itinerario_b.html" style="color:var(--text);text-decoration:none">🅱️ Opción B</a>
+      <a class="pill" href="plan_actividades.html" style="color:var(--text);text-decoration:none">🗳️ Votar actividades</a>
+      <a class="pill" href="restaurantes.html" style="color:var(--text);text-decoration:none">🍽️ Restaurantes</a>
+      <span class="pill">📅 29 mar – 3 abr 2026</span>
+      <span class="pill">👨‍👩‍👧‍👦 3 familias · 12 personas</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Resumen -->
+  <div class="summary">
+    <div class="summary-title">🏆 Construido con los votos del grupo</div>
+    <div class="summary-grid">
+      <div class="summary-stat">
+        <div class="stat-val">6</div>
+        <div class="stat-lbl">días (1 llegada + 4 actividad + 1 regreso)</div>
+      </div>
+      <div class="summary-stat">
+        <div class="stat-val">3</div>
+        <div class="stat-lbl">parques de pago</div>
+      </div>
+      <div class="summary-stat">
+        <div class="stat-val">~R$ 4.300</div>
+        <div class="stat-lbl">estimado en entradas (grupo de 12)</div>
+      </div>
+      <div class="summary-stat">
+        <div class="stat-val">5/6</div>
+        <div class="stat-lbl">votos en las actividades top</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Costos estimados -->
+  <div class="cost-section">
+    <div class="day-card">
+      <div class="day-header">
+        <div style="flex:1">
+          <div style="font-size:15px;font-weight:700">💸 Costos estimados en entradas — grupo completo (6A + 6N)</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">⚠️ Estimados — verificar precios actuales antes del viaje</div>
+        </div>
+      </div>
+      <div style="padding:16px 18px;overflow-x:auto">
+        <table class="cost-table">
+          <tr><th>Día</th><th>Actividad</th><th>Adultos (×6)</th><th>Niños (×6)</th><th>Total grupo</th></tr>
+          <tr><td>Día 3</td><td>🏊 Acquamotion</td><td>R$164 × 6</td><td>R$119 × 6</td><td><strong>~R$ 1.700</strong></td></tr>
+          <tr><td>Día 4</td><td>🦕 Terra Mágica Florybal</td><td>R$180 × 6</td><td>R$90 × 6</td><td><strong>~R$ 1.620</strong></td></tr>
+          <tr><td>Día 5</td><td>💧 Parque do Caracol</td><td>R$50 × 6</td><td>R$25 × 6</td><td><strong>~R$ 450</strong></td></tr>
+          <tr><td>Día 5</td><td>🚡 Bondinhos Aéreos</td><td>~R$60 × 6</td><td>~R$30 × 6</td><td><strong>~R$ 540</strong></td></tr>
+          <tr class="free"><td>Varios</td><td>🦆 Lago Negro · 🍫 Chocolates · ⛪ Canela · 🦁 Zoo</td><td colspan="2">Gratuito o bajo costo</td><td><strong>~R$ 0–200</strong></td></tr>
+          <tr class="total"><td colspan="4">Total estimado entradas (grupo)</td><td>~R$ 4.300</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- DÍA 1 -->
+  <div class="day-card" id="day1">
+    <div class="day-header">
+      <div class="day-num" style="background:rgba(251,191,36,.15);color:#fbbf24">1</div>
+      <div class="day-info">
+        <div class="day-title">🚗 Llegada + Lago Joaquina</div>
+        <div class="day-date">Domingo 29 de marzo — llegada al mediodía</div>
+      </div>
+      <div class="day-cost">Gratis</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="slot">
+          <div class="slot-dot" style="background:#6b7280"></div>
+          <div class="slot-time">MEDIODÍA</div>
+          <div class="slot-title">🚗 Llegada a Gramado</div>
+          <div class="slot-desc">Check-in en el alojamiento. Dejar valijas, comer algo rápido. Nada de parques el primer día — el objetivo es llegar bien y orientarse.</div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#60a5fa"></div>
+          <div class="slot-time">16:00 – 18:30</div>
+          <div class="slot-title">🌅 Lago Joaquina Rita Bier</div>
+          <div class="slot-desc">Paseo tranquilo de 1–1,5h alrededor del lago céntrico y fotogénico. Los niños corren, los grandes descansan el viaje. Sin cola, sin costo. Ideal para el atardecer.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Lago+Joaquina+Rita+Bier+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+            <a class="slot-link" href="gramado_lagos.html">📄 Más info</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#a78bfa"></div>
+          <div class="slot-time">19:30</div>
+          <div class="slot-title">🍽️ Cena de llegada</div>
+          <div class="slot-desc">Sin reserva — algo tranquilo y cercano. Gasthof o similar en el centro de Gramado. Sin apuros.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="restaurantes.html">🍽️ Ver opciones</a>
+          </div>
+        </div>
+      </div>
+      <div class="day-section-title">☔ Plan lluvia</div>
+      <div class="rain-box"><strong>Sin plan necesario</strong> — el lago es lo de menos. Si llueve fuerte, quedarse en el alojamiento jugando cartas y disfrutando el primer contacto con Gramado.</div>
+      <div class="day-section-title">💡 Tips del día</div>
+      <div class="tips-box">
+        <strong>Supermercado antes de llegar:</strong> comprar snacks, fruta, agua, lo de los niños para los días siguientes. Ahorra tiempo y plata.
+        <br/>Confirmar reserva de Acquamotion (Día 3) esta noche si no está hecha.
+      </div>
+    </div>
+    <div class="votes-section" data-day="day1">
+      <div class="votes-hint">¿Te gusta este plan para el Día 1?</div>
+      <div class="voters">
+        <button class="voter-btn" data-person="nano"   onclick="toggleVote('day1','nano')">Nano</button>
+        <button class="voter-btn" data-person="ina"    onclick="toggleVote('day1','ina')">Ina</button>
+        <button class="voter-btn" data-person="martin" onclick="toggleVote('day1','martin')">Martín</button>
+        <button class="voter-btn" data-person="caro"   onclick="toggleVote('day1','caro')">Caro</button>
+        <button class="voter-btn" data-person="emi"    onclick="toggleVote('day1','emi')">Emi</button>
+        <button class="voter-btn" data-person="chema"  onclick="toggleVote('day1','chema')">Chema</button>
+      </div>
+      <div class="votes-who"></div>
+    </div>
+  </div>
+
+  <!-- DÍA 2 -->
+  <div class="day-card" id="day2">
+    <div class="day-header">
+      <div class="day-num" style="background:rgba(251,191,36,.15);color:#fbbf24">2</div>
+      <div class="day-info">
+        <div class="day-title">🍫 Tour chocolates + 🦆 Lago Negro + 🍕 Héctor (cena-show)</div>
+        <div class="day-date">Lunes 30 de marzo — día Gramado (3 actividades top)</div>
+      </div>
+      <div class="day-cost">Bajo / gratis</div>
+    </div>
+    <div class="day-body">
+      <div class="badges">
+        <span class="vote-result">🍫 Tour chocolates — 5/6 votos</span>
+        <span class="vote-result">🦆 Lago Negro — 5/6 votos</span>
+        <span class="vote-result">🍕 Héctor — 5/6 votos</span>
+      </div>
+      <div class="timeline">
+        <div class="slot">
+          <div class="slot-dot" style="background:#d97706"></div>
+          <div class="slot-time">09:30 – 12:00</div>
+          <div class="slot-title">🍫 Tour de fábricas de chocolate</div>
+          <div class="slot-desc">Recorrida por las fábricas de chocolate del centro de Gramado. Influencia alemana, degustaciones gratuitas, los niños flipan viendo cómo se hace el chocolate. Sin reserva, se entra caminando. Hammonia, Caracol Chocolates, Prawer y otras.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=fabricas+chocolate+Gramado" target="_blank" rel="noopener">📍 Fábricas en Maps</a>
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Hammonia+Gramado" target="_blank" rel="noopener">🍫 Hammonia</a>
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Caracol+Chocolates+Gramado" target="_blank" rel="noopener">🍫 Caracol</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#22c55e"></div>
+          <div class="slot-time">12:30 – 14:00</div>
+          <div class="slot-title">🍽️ Almuerzo en Gramado centro</div>
+          <div class="slot-desc">Buffet por quilo o algo rápido — los niños ya comieron suficiente chocolate 🙂. Zona centro, fácil y sin esperas.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="restaurantes.html">🍽️ Ver opciones</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#60a5fa"></div>
+          <div class="slot-time">14:30 – 17:30</div>
+          <div class="slot-title">🦆 Lago Negro</div>
+          <div class="slot-desc">El paseo clásico de Gramado. Sendero alrededor del lago, patos, pedalinho (R$15–20 por bote aprox.), zona de picnic. Los niños corren libremente. Evitar el mediodía — tarde es perfecto.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Lago+Negro+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+            <a class="slot-link" href="gramado_lagos.html">📄 Más info</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#f43f5e"></div>
+          <div class="slot-time">19:30 – 22:00</div>
+          <div class="slot-title">🍕 Cena-show: Pizzería Mágica del Héctor</div>
+          <div class="slot-desc">Pizzería temática con show de magia incluido — el Héctor hace trucos mientras prepara las pizzas. Experiencia gastronómica + entretenimiento en una sola salida. Ideal para una noche con los chicos. <strong>⚠️ Reservar con anticipación</strong> — muy popular en Semana Santa.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Pizzaria+Magica+Hector+Gramado" target="_blank" rel="noopener">📍 Buscar en Maps</a>
+          </div>
+        </div>
+      </div>
+      <div class="day-section-title">☔ Plan lluvia</div>
+      <div class="rain-box">Las fábricas de chocolate son <strong>100% cubiertas</strong> — perfectas para día de lluvia. Si llueve en el Lago Negro, reducir la visita o saltear y quedarse en zona de cafés. La cena-show del Héctor tampoco se ve afectada.</div>
+      <div class="day-section-title">💡 Tips del día</div>
+      <div class="tips-box">
+        <strong>Héctor: reservar apenas lleguen</strong> (o incluso antes del viaje). Preguntar si hay sesión familiar (temprana).
+        <br/>En el Lago Negro: llevar snacks y algo para que los niños coman mientras pedalean.
+        <br/>Presupuesto del día: prácticamente solo la cena y el pedalinho.
+      </div>
+    </div>
+    <div class="votes-section" data-day="day2">
+      <div class="votes-hint">¿Te gusta este plan para el Día 2?</div>
+      <div class="voters">
+        <button class="voter-btn" data-person="nano"   onclick="toggleVote('day2','nano')">Nano</button>
+        <button class="voter-btn" data-person="ina"    onclick="toggleVote('day2','ina')">Ina</button>
+        <button class="voter-btn" data-person="martin" onclick="toggleVote('day2','martin')">Martín</button>
+        <button class="voter-btn" data-person="caro"   onclick="toggleVote('day2','caro')">Caro</button>
+        <button class="voter-btn" data-person="emi"    onclick="toggleVote('day2','emi')">Emi</button>
+        <button class="voter-btn" data-person="chema"  onclick="toggleVote('day2','chema')">Chema</button>
+      </div>
+      <div class="votes-who"></div>
+    </div>
+  </div>
+
+  <!-- DÍA 3 -->
+  <div class="day-card" id="day3">
+    <div class="day-header">
+      <div class="day-num" style="background:rgba(251,191,36,.15);color:#fbbf24">3</div>
+      <div class="day-info">
+        <div class="day-title">🏊 Acquamotion — día de parque acuático</div>
+        <div class="day-date">Martes 31 de marzo — Gramado (cubierto)</div>
+      </div>
+      <div class="day-cost">~R$ 1.700 grupo</div>
+    </div>
+    <div class="day-body">
+      <div class="badges">
+        <span class="vote-result">🏊 Acquamotion — 4/6 votos</span>
+        <span class="badge">🏠 Interior / cubierto</span>
+        <span class="badge">☔ Ideal si llueve</span>
+        <span class="badge">💸 R$164 adulto / R$119 niño</span>
+      </div>
+      <div class="timeline">
+        <div class="slot">
+          <div class="slot-dot" style="background:#0891b2"></div>
+          <div class="slot-time">ANTES DE SALIR</div>
+          <div class="slot-title">📦 Preparar la bolsa</div>
+          <div class="slot-desc">Traje de baño, toalla, calzado de agua (obligatorio), protector solar, ropa de abrigo para salir. Llevar snacks y agua para no gastar de más en el parque. Comprar entradas online.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://acquamotion.oneriopass.com/" target="_blank" rel="noopener">🎟️ Comprar entradas</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#0891b2"></div>
+          <div class="slot-time">09:00 – APERTURA</div>
+          <div class="slot-title">🏊 Acquamotion — llegada a la apertura</div>
+          <div class="slot-desc">Parque acuático cubierto con piscinas climatizadas. Zonas infantiles separadas por edades — perfectas para los de 3–5 y para los de 6–10. Alta capacidad, colas bajas. Sin problema de lluvia o frío.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://acquamotion.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Acquamotion+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#4ade80"></div>
+          <div class="slot-time">12:30 – 13:30</div>
+          <div class="slot-title">🍽️ Almuerzo (en el parque o cerca)</div>
+          <div class="slot-desc">Si hay zona de comida en el parque, evaluar precios vs. salir y volver. Con niños pequeños suele ser más práctico comer adentro.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="restaurantes.html">🍽️ Opciones zona Acquamotion</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#0891b2"></div>
+          <div class="slot-time">13:30 – 17:00</div>
+          <div class="slot-title">🏊 Segunda sesión — toboganes y relajación</div>
+          <div class="slot-desc">Los grandes pueden turnarse para relajarse en el área de jacuzzi/rio lento mientras otros cuidan a los chicos. Los de 6–10 ya van solos a algunos toboganes.</div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#6b7280"></div>
+          <div class="slot-time">17:30</div>
+          <div class="slot-title">🏠 Regreso + cena en el alojamiento</div>
+          <div class="slot-desc">Día agotador para los chicos — cena en casa o algo muy cercano y simple.</div>
+        </div>
+      </div>
+      <div class="day-section-title">☔ Plan lluvia</div>
+      <div class="rain-box"><strong>Este día ES el plan lluvia.</strong> Acquamotion es 100% cubierto y climatizado. Si llueve es casi mejor — menos gente. Si el día está espléndido y quieren reubicar Acquamotion, swappear con el Día 5 y hacer Bondinhos hoy.</div>
+      <div class="day-section-title">💡 Tips del día</div>
+      <div class="tips-box">
+        <strong>Entradas online:</strong> evitar taquilla el día del parque.
+        <br/>Calzado de agua obligatorio para toboganes — comprar antes si no tienen.
+        <br/>Confirmar ticket tipo "dia todo" o por franjas — con niños conviene el día completo.
+      </div>
+    </div>
+    <div class="votes-section" data-day="day3">
+      <div class="votes-hint">¿Te gusta este plan para el Día 3?</div>
+      <div class="voters">
+        <button class="voter-btn" data-person="nano"   onclick="toggleVote('day3','nano')">Nano</button>
+        <button class="voter-btn" data-person="ina"    onclick="toggleVote('day3','ina')">Ina</button>
+        <button class="voter-btn" data-person="martin" onclick="toggleVote('day3','martin')">Martín</button>
+        <button class="voter-btn" data-person="caro"   onclick="toggleVote('day3','caro')">Caro</button>
+        <button class="voter-btn" data-person="emi"    onclick="toggleVote('day3','emi')">Emi</button>
+        <button class="voter-btn" data-person="chema"  onclick="toggleVote('day3','chema')">Chema</button>
+      </div>
+      <div class="votes-who"></div>
+    </div>
+  </div>
+
+  <!-- DÍA 4 -->
+  <div class="day-card" id="day4">
+    <div class="day-header">
+      <div class="day-num" style="background:rgba(251,191,36,.15);color:#fbbf24">4</div>
+      <div class="day-info">
+        <div class="day-title">🦕 Terra Mágica Florybal — día de Canela</div>
+        <div class="day-date">Miércoles 1 de abril — Canela (15–20 min de Gramado)</div>
+      </div>
+      <div class="day-cost">~R$ 1.620 grupo</div>
+    </div>
+    <div class="day-body">
+      <div class="badges">
+        <span class="vote-result">🦕 Terra Mágica Florybal — 4/6 votos</span>
+        <span class="badge">🌳 Exterior / bosque</span>
+        <span class="badge">💸 R$180 adulto / R$90 niño</span>
+        <span class="badge">⏳ Día completo</span>
+      </div>
+      <div class="timeline">
+        <div class="slot">
+          <div class="slot-dot" style="background:#16a34a"></div>
+          <div class="slot-time">09:00 – APERTURA</div>
+          <div class="slot-title">🦕 Terra Mágica Florybal — entrada</div>
+          <div class="slot-desc">Bosque temático en Canela con dinosaurios, personajes y shows. Paisaje de mata nativa, senderos con subidas y bajadas — llevar cochecito para los más chicos y calzado cómodo. Muy recomendado para 4–10 años.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://parqueflorybal.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+            <a class="slot-link" href="https://ingresso.parqueterramagicaflorybal.com.br/en/passaporte-terra-magica-florybal" target="_blank" rel="noopener">🎟️ Entradas</a>
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Terra+Magica+Florybal+Canela" target="_blank" rel="noopener">📍 Maps</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#4ade80"></div>
+          <div class="slot-time">12:30 – 13:30</div>
+          <div class="slot-title">🍽️ Almuerzo en el parque o cantina de Canela</div>
+          <div class="slot-desc">Si el parque tiene zona de comida, evaluar. Alternativa: salir y comer en el centro de Canela (5 min en auto) y volver — solo si los niños aguantan el traslado.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="restaurantes.html">🍽️ Opciones Canela</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#16a34a"></div>
+          <div class="slot-time">13:30 – 17:00</div>
+          <div class="slot-title">🦕 Segunda vuelta — shows y personajes</div>
+          <div class="slot-desc">Aprovechar los shows del parque por la tarde, que suelen ser menos concurridos. Los chicos de 3 años pueden necesitar siesta — llevar manta y cochecito reclinable.</div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#a78bfa"></div>
+          <div class="slot-time">17:30 – 19:00</div>
+          <div class="slot-title">⛪ Catedral de Pedra — visita express (opcional)</div>
+          <div class="slot-desc">Si hay energía, parar 30–40 min en la Catedral Nossa Senhora de Lourdes antes de volver. Entrada libre, impresionante de noche con iluminación. En el centro de Canela a 5 min.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Catedral+de+Pedra+Canela" target="_blank" rel="noopener">📍 Maps</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#6b7280"></div>
+          <div class="slot-time">19:30</div>
+          <div class="slot-title">🏠 Regreso a Gramado + cena</div>
+          <div class="slot-desc">Cena tranquila — día de parque fue intenso. Algo cercano al alojamiento.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="restaurantes.html">🍽️ Ver opciones</a>
+          </div>
+        </div>
+      </div>
+      <div class="day-section-title">☔ Plan lluvia</div>
+      <div class="rain-box"><strong>Terra Mágica es exterior</strong> — si hay lluvia intensa, swappear con Acquamotion (Día 3) y hacer el parque acuático hoy. Si es lluvia ligera, impermeables y adelante — el bosque moja pero vale la pena.</div>
+      <div class="day-section-title">💡 Tips del día</div>
+      <div class="tips-box">
+        <strong>Llegar a la apertura:</strong> los shows de personajes empiezan temprano y los mejores están llenos si se llega tarde.
+        <br/>Cochecito en todos los senderos — hay desnivel, el cochecito para 3 años es imprescindible.
+        <br/>Semana Santa: comprar entradas online con anticipación.
+      </div>
+    </div>
+    <div class="votes-section" data-day="day4">
+      <div class="votes-hint">¿Te gusta este plan para el Día 4?</div>
+      <div class="voters">
+        <button class="voter-btn" data-person="nano"   onclick="toggleVote('day4','nano')">Nano</button>
+        <button class="voter-btn" data-person="ina"    onclick="toggleVote('day4','ina')">Ina</button>
+        <button class="voter-btn" data-person="martin" onclick="toggleVote('day4','martin')">Martín</button>
+        <button class="voter-btn" data-person="caro"   onclick="toggleVote('day4','caro')">Caro</button>
+        <button class="voter-btn" data-person="emi"    onclick="toggleVote('day4','emi')">Emi</button>
+        <button class="voter-btn" data-person="chema"  onclick="toggleVote('day4','chema')">Chema</button>
+      </div>
+      <div class="votes-who"></div>
+    </div>
+  </div>
+
+  <!-- DÍA 5 -->
+  <div class="day-card" id="day5">
+    <div class="day-header">
+      <div class="day-num" style="background:rgba(251,191,36,.15);color:#fbbf24">5</div>
+      <div class="day-info">
+        <div class="day-title">💧 Caracol + 🚡 Bondinhos + 🦁 Zoo — Canela completo</div>
+        <div class="day-date">Jueves 2 de abril (Jueves Santo) — Canela + Gramado</div>
+      </div>
+      <div class="day-cost">~R$ 1.000 grupo</div>
+    </div>
+    <div class="day-body">
+      <div class="badges">
+        <span class="vote-result">🚡 Bondinhos — 5/6 votos</span>
+        <span class="vote-result">🦁 Zoológico — 4/6 votos</span>
+        <span class="badge">💧 Parque do Caracol — obligatorio</span>
+        <span class="badge">⚠️ Jueves Santo — verificar horarios</span>
+      </div>
+      <div class="timeline">
+        <div class="slot">
+          <div class="slot-dot" style="background:#0891b2"></div>
+          <div class="slot-time">09:00 – 12:30</div>
+          <div class="slot-title">💧 Parque do Caracol</div>
+          <div class="slot-desc">Cascada de 131 m en mata nativa — uno de los paisajes más impresionantes de la región. Sendero fácil y bien señalizado, apto para niños desde 3 años. Bondinho (teleférico) y zip line opcionales para los más grandes. 2–3 horas alcanza bien.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://www.parquecaracol.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Parque+do+Caracol+Canela" target="_blank" rel="noopener">📍 Maps</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#4ade80"></div>
+          <div class="slot-time">12:30 – 13:30</div>
+          <div class="slot-title">🍽️ Almuerzo en Canela</div>
+          <div class="slot-desc">Centro de Canela, a 10 min del Caracol. Cantinas, buffet por quilo, opciones familiares y sin esperas.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="restaurantes.html">🍽️ Opciones Canela</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#22d3ee"></div>
+          <div class="slot-time">14:00 – 15:30</div>
+          <div class="slot-title">🚡 Bondinhos Aéreos</div>
+          <div class="slot-desc">Teleférico panorámico que sobrevuela el valle entre Gramado y Canela. Vistas espectaculares de la mata atlántica y las sierras gaúchas. A los niños les encanta. Verificar si se puede tomar solo la vuelta de Canela a Gramado o hay que hacer ida y vuelta.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://www.bondinhosaereos.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=Bondinhos+Aereos+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#f59e0b"></div>
+          <div class="slot-time">16:00 – 18:00</div>
+          <div class="slot-title">🦁 Zoológico de Gramado <span style="font-size:11px;color:var(--mid)">(verificar)</span></div>
+          <div class="slot-desc">Si hay tiempo y energía: visita al zoológico de la región. Los chicos de 3–6 años disfrutan mucho el contacto con animales. <strong>⚠️ Verificar nombre exacto, si está abierto en Semana Santa y horarios.</strong> Alternativa: tarde libre en Gramado centro.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="https://www.google.com/maps/search/?api=1&query=zoologico+Gramado+RS" target="_blank" rel="noopener">📍 Buscar en Maps</a>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#a78bfa"></div>
+          <div class="slot-time">19:30</div>
+          <div class="slot-title">🍽️ Cena — última noche de viaje</div>
+          <div class="slot-desc">Última cena del viaje — algo especial pero sin locuras. Fondue o churrascaria si el grupo tiene energía. <strong>Reservar con anticipación</strong> — Jueves Santo en Gramado estará lleno.</div>
+          <div class="slot-links">
+            <a class="slot-link" href="restaurantes.html">🍽️ Cenas especiales</a>
+          </div>
+        </div>
+      </div>
+      <div class="day-section-title">☔ Plan lluvia</div>
+      <div class="rain-box"><strong>Si llueve fuerte:</strong> el Caracol tiene sendero pero se complica con niños chicos bajo lluvia intensa. Priorizar Bondinhos (cubierto) y pasar más tiempo en el Zoo o una fábrica de chocolates de Canela. El Caracol puede hacerse igualmente con agua si es lluvia ligera — las cataratas son más espectaculares.</div>
+      <div class="day-section-title">💡 Tips del día</div>
+      <div class="tips-box">
+        <strong>Jueves Santo:</strong> muchos negocios cierran temprano y las atracciones pueden estar llenas. Llegar al Caracol bien temprano (9h apertura) para evitar pico de mediodía.
+        <br/>Bondinhos: comprar ticket en el mismo lugar o verificar si venden online.
+        <br/>Última noche: hacer el brindis por el viaje.
+      </div>
+    </div>
+    <div class="votes-section" data-day="day5">
+      <div class="votes-hint">¿Te gusta este plan para el Día 5?</div>
+      <div class="voters">
+        <button class="voter-btn" data-person="nano"   onclick="toggleVote('day5','nano')">Nano</button>
+        <button class="voter-btn" data-person="ina"    onclick="toggleVote('day5','ina')">Ina</button>
+        <button class="voter-btn" data-person="martin" onclick="toggleVote('day5','martin')">Martín</button>
+        <button class="voter-btn" data-person="caro"   onclick="toggleVote('day5','caro')">Caro</button>
+        <button class="voter-btn" data-person="emi"    onclick="toggleVote('day5','emi')">Emi</button>
+        <button class="voter-btn" data-person="chema"  onclick="toggleVote('day5','chema')">Chema</button>
+      </div>
+      <div class="votes-who"></div>
+    </div>
+  </div>
+
+  <!-- DÍA 6 -->
+  <div class="day-card" id="day6">
+    <div class="day-header">
+      <div class="day-num" style="background:rgba(107,114,128,.2);color:#9ca3af">6</div>
+      <div class="day-info">
+        <div class="day-title">🚗 Checkout + regreso a Montevideo</div>
+        <div class="day-date">Viernes 3 de abril (Viernes Santo) — solo logística</div>
+      </div>
+      <div class="day-cost">Sin actividades</div>
+    </div>
+    <div class="day-body">
+      <div class="timeline">
+        <div class="slot">
+          <div class="slot-dot" style="background:#6b7280"></div>
+          <div class="slot-time">08:00 – 10:00</div>
+          <div class="slot-title">🧳 Desayuno + checkout</div>
+          <div class="slot-desc">Últimas compras de chocolate y souvenir si no se hicieron antes. Dejar el alojamiento. Cargar el auto con calma.</div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#6b7280"></div>
+          <div class="slot-time">10:00 – 11:00</div>
+          <div class="slot-title">🛒 Parada express en el centro (opcional)</div>
+          <div class="slot-desc">Si falta algún regalo o chocolate. Hammonia y Caracol Chocolates abren temprano. Ruta: Gramado → Caxias do Sul → Porto Alegre → frontera Uruguay → Montevideo.</div>
+        </div>
+        <div class="slot">
+          <div class="slot-dot" style="background:#6b7280"></div>
+          <div class="slot-time">11:00+</div>
+          <div class="slot-title">🚗 Viaje de regreso</div>
+          <div class="slot-desc">~8–10 horas hasta Montevideo según paradas. Viernes Santo: ruta con más tráfico a la tarde — conviene salir temprano. Llevar música, snacks y juegos para los niños.</div>
+        </div>
+      </div>
+      <div class="day-section-title">💡 Tips del día</div>
+      <div class="tips-box">
+        <strong>Viernes Santo:</strong> día feriado nacional en Brasil — pocas cosas abiertas pero el camino al sur no se ve afectado.
+        <br/>Parada recomendada en Caxias do Sul o Porto Alegre para estirar las piernas.
+        <br/>Confirmar documentación de regreso a Uruguay.
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    ⭐ Itinerario definitivo — construido con los votos del grupo.
+    <br/>⬅️ <a href="index.html">Ver parques</a> · <a href="plan_actividades.html">Votaciones</a> · <a href="restaurantes.html">Restaurantes</a> · <a href="itinerario_a.html">Opción A</a> · <a href="itinerario_b.html">Opción B</a>
+  </div>
+</footer>
+
+<script>
+  const PAGE = 'itinerario_final';
+
+  const PEOPLE = [
+    {id:'nano',   name:'Nano',   color:'#60a5fa'},
+    {id:'ina',    name:'Ina',    color:'#f472b6'},
+    {id:'martin', name:'Martín', color:'#34d399'},
+    {id:'caro',   name:'Caro',   color:'#fb923c'},
+    {id:'emi',    name:'Emi',    color:'#22d3ee'},
+    {id:'chema',  name:'Chema',  color:'#a78bfa'},
+  ];
+
+  function getVotes(){ return JSON.parse(localStorage.getItem('v_'+PAGE)||'{}'); }
+  function saveVotes(v){ localStorage.setItem('v_'+PAGE, JSON.stringify(v)); }
+
+  function toggleVote(dayId, personId){
+    const v = getVotes();
+    if(!v[dayId]) v[dayId] = [];
+    const i = v[dayId].indexOf(personId);
+    if(i >= 0) v[dayId].splice(i,1); else v[dayId].push(personId);
+    saveVotes(v);
+    renderVotes();
+  }
+
+  function renderVotes(){
+    const v = getVotes();
+    document.querySelectorAll('.votes-section').forEach(sec => {
+      const dayId = sec.dataset.day;
+      const dayVotes = v[dayId] || [];
+      sec.querySelectorAll('.voter-btn').forEach(btn => {
+        const pid = btn.dataset.person;
+        const person = PEOPLE.find(p => p.id === pid);
+        const active = dayVotes.includes(pid);
+        btn.classList.toggle('active', active);
+        if(active){
+          btn.style.borderColor = person.color + 'aa';
+          btn.style.background  = person.color + '22';
+          btn.style.color       = person.color;
+        } else {
+          btn.style.borderColor = '';
+          btn.style.background  = '';
+          btn.style.color       = '';
+        }
+      });
+      const whoEl = sec.querySelector('.votes-who');
+      if(whoEl){
+        if(!dayVotes.length){ whoEl.textContent = ''; return; }
+        const names = dayVotes.map(id => PEOPLE.find(p => p.id === id)?.name).filter(Boolean);
+        whoEl.textContent = '❤️ ' + names.join(', ');
+      }
+    });
+  }
+
+  renderVotes();
+</script>
+</body>
+</html>
