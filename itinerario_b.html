@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Itinerario Opción A — Gramado Semana Santa 2026</title>
+  <title>Itinerario Opción B — Gramado Semana Santa 2026</title>
   <style>
     :root{
       --bg:#0b0f14; --card:#121823; --muted:#9fb0c3; --text:#e8f0fa;
@@ -12,7 +12,7 @@
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0b0f14,#070a0f);color:var(--text)}
-    header{padding:28px 18px;border-bottom:1px solid var(--line);background:radial-gradient(900px 400px at 20% 0%,rgba(124,196,255,.14),transparent 60%)}
+    header{padding:28px 18px;border-bottom:1px solid var(--line);background:radial-gradient(900px 400px at 20% 0%,rgba(52,211,153,.1),transparent 60%)}
     .wrap{max-width:1100px;margin:0 auto}
     h1{margin:0 0 8px 0;font-size:28px;letter-spacing:.2px}
     .sub{color:var(--muted);line-height:1.4}
@@ -38,11 +38,12 @@
     .stat{background:rgba(18,24,35,.8);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
     .stat-val{font-size:22px;font-weight:700;color:var(--text);line-height:1.1}
     .stat-label{font-size:12px;color:var(--muted);margin-top:4px}
+    .stat-val.green{color:#34d399}
 
     /* Day cards */
     .day-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
     .day-title{display:flex;align-items:center;gap:10px}
-    .day-num{width:32px;height:32px;border-radius:50%;background:rgba(124,196,255,.15);border:1px solid rgba(124,196,255,.3);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--link);flex-shrink:0}
+    .day-num{width:32px;height:32px;border-radius:50%;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#34d399;flex-shrink:0}
     .day-name{font-size:16px;font-weight:600}
     .day-date{font-size:13px;color:var(--muted)}
 
@@ -81,6 +82,7 @@
     .cost-table td{padding:8px 8px;border-bottom:1px solid rgba(36,50,71,.5);color:var(--muted)}
     .cost-table td:last-child{text-align:right;color:var(--text);font-weight:600}
     .cost-table tr.total td{border-top:1px solid var(--line);border-bottom:none;color:var(--text);font-weight:700;padding-top:10px}
+    .cost-table tr.saving td{border-top:1px solid rgba(52,211,153,.3);border-bottom:none;color:#34d399;font-weight:700;padding-top:10px}
 
     @media(max-width:860px){
       .day-header{flex-direction:column;align-items:flex-start}
@@ -94,15 +96,15 @@
 <body>
 <header>
   <div class="wrap">
-    <h1>Itinerario Opción A — 6 días / 4 parques (intensiva)</h1>
+    <h1>Itinerario Opción B — 6 días / 2 parques (relajada)</h1>
     <div class="sub">
       Semana Santa 2026 · Gramado + Canela · 3 familias (6 adultos + 6 niños, 3–10 años)
-      <br/>Estrategia: llegar temprano a cada parque, alternar exterior/interior para cubrir la lluvia. Regreso a Montevideo el viernes.
+      <br/>Estrategia: menos parques de pago, más naturaleza, actividades de chocolate y Canela. ~40% más barata que la Opción A.
     </div>
     <div class="meta">
       <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">⬅️ Ver parques</a>
       <a class="pill" href="gramado_lagos.html" style="color:var(--text);text-decoration:none">🌊 Ver lagos</a>
-      <a class="pill" href="itinerario_b.html" style="color:var(--text);text-decoration:none">🅱️ Ver Opción B</a>
+      <a class="pill" href="itinerario_a.html" style="color:var(--text);text-decoration:none">🅰️ Ver Opción A</a>
       <span class="pill">📅 29 mar – 3 abr 2026</span>
       <span class="pill">👨‍👩‍👧‍👦 3 familias · 12 personas</span>
       <span class="pill">🌡️ Otoño en RS: llevar abrigo</span>
@@ -118,24 +120,24 @@
       <div class="stat-label">Días de viaje</div>
     </div>
     <div class="stat">
-      <div class="stat-val">4</div>
+      <div class="stat-val">2</div>
       <div class="stat-label">Parques de pago</div>
     </div>
     <div class="stat">
-      <div class="stat-val">2 / 2</div>
+      <div class="stat-val">4 / 1</div>
       <div class="stat-label">Exterior / Interior</div>
     </div>
     <div class="stat">
-      <div class="stat-val">~R$ 6.620</div>
+      <div class="stat-val green">~R$ 4.100</div>
       <div class="stat-label">Costo total grupo (entradas)</div>
     </div>
     <div class="stat">
-      <div class="stat-val">~R$ 2.200</div>
+      <div class="stat-val green">~R$ 1.370</div>
       <div class="stat-label">Costo por familia (entradas)</div>
     </div>
     <div class="stat">
-      <div class="stat-val">✅ Sí</div>
-      <div class="stat-label">Plan lluvia cubierto</div>
+      <div class="stat-val green">~R$ 2.500</div>
+      <div class="stat-label">Ahorro vs Opción A (grupo)</div>
     </div>
   </div>
 
@@ -163,7 +165,7 @@
           <div class="slot-body">
             <div class="slot-time">🚀 Mediodía</div>
             <div class="slot-title">Llegada a Gramado + check-in</div>
-            <div class="slot-desc">Instalarse en el alojamiento. Si hay tiempo antes del check-in, dejar las valijas y hacer el super: snacks para los días, protector solar, ropa de lluvia. Gramado tiene supermercados bien surtidos en el centro.</div>
+            <div class="slot-desc">Instalarse en el alojamiento. Si hay tiempo antes del check-in, dejar las valijas y hacer el super: snacks para los días, protector solar, ropa de lluvia.</div>
           </div>
         </div>
         <div class="slot">
@@ -171,7 +173,7 @@
           <div class="slot-body">
             <div class="slot-time">🌤️ Tarde (15:00–17:30)</div>
             <div class="slot-title">Lago Joaquina Rita Bier — primer paseo</div>
-            <div class="slot-desc">Paseo tranquilo para estirar las piernas después del viaje desde Montevideo. Gratis, céntrico, fotogénico. Los niños pueden correr libremente. Duración: 1–1,5 h. Sacar la foto grupal de bienvenida.</div>
+            <div class="slot-desc">Paseo tranquilo para estirar las piernas después del viaje desde Montevideo. Gratis, céntrico, fotogénico. Los niños pueden correr libremente. Duración: 1–1,5 h. La foto grupal de bienvenida.</div>
           </div>
         </div>
         <div class="slot">
@@ -179,12 +181,12 @@
           <div class="slot-body">
             <div class="slot-time">🌙 Noche</div>
             <div class="slot-title">Cena temprana en el centro (18:30)</div>
-            <div class="slot-desc">Evitar el pico de las 20:00. Acostarse temprano: mañana es el primer día de parque.</div>
+            <div class="slot-desc">Evitar el pico de las 20:00. Acostarse temprano: mañana es el primer gran día, viajan a Canela.</div>
           </div>
         </div>
       </div>
       <div class="day-footer">
-        <div class="day-tip">💡 <b>Plan lluvia:</b> si llueve al llegar, omitir el lago y priorizar el super + descanso. El lago lo pueden hacer otro día.</div>
+        <div class="day-tip">💡 <b>Plan lluvia:</b> si llueve al llegar, omitir el lago y priorizar el super + descanso.</div>
       </div>
       <div class="votes-section" data-day="day1">
         <div class="votes-hint">Tocá tu nombre si te gusta este día</div>
@@ -206,56 +208,65 @@
         <div class="day-title">
           <div class="day-num">2</div>
           <div>
-            <div class="day-name">Mini Mundo + Lago Negro</div>
-            <div class="day-date">Lunes 30 de marzo · Día exterior · Gramado</div>
+            <div class="day-name">Canela: Parque do Caracol + centro + Catedral de Pedra</div>
+            <div class="day-date">Lunes 30 de marzo · Día exterior · Canela</div>
           </div>
         </div>
         <div class="badges" style="margin:0">
-          <span class="badge">🌳 Exterior</span>
-          <span class="badge">💸 ~R$ 1.030 grupo</span>
+          <span class="badge">💧 Exterior / cascada</span>
+          <span class="badge">💸 ~R$ 480 grupo (Caracol)</span>
           <span class="badge">⚡ Intensidad: <strong>media</strong></span>
-          <span class="badge">🎟️ Comprar online antes</span>
+          <span class="badge">🚙 Traslado Gramado → Canela</span>
         </div>
       </div>
       <div class="timeline">
         <div class="slot">
+          <div class="slot-line"><div class="slot-dot travel"></div><div class="connector"></div></div>
+          <div class="slot-body">
+            <div class="slot-time">🚀 Mañana (8:30)</div>
+            <div class="slot-title">Salida hacia Canela</div>
+            <div class="slot-desc">Canela está a ~8 km de Gramado (15–20 min en auto). Salir temprano para llegar a la apertura del Parque do Caracol.</div>
+          </div>
+        </div>
+        <div class="slot">
           <div class="slot-line"><div class="slot-dot morning"></div><div class="connector"></div></div>
           <div class="slot-body">
-            <div class="slot-time">🌅 Mañana (9:00 apertura)</div>
-            <div class="slot-title">Mini Mundo — llegar a la apertura</div>
-            <div class="slot-desc">Ciudad en miniatura, todo 24× más pequeño. Perfecto para 3–10 años: caminata tranquila, fotos, búsqueda de detalles escondidos. Duración: 2–2,5 h. Colas bajas si se llega temprano.</div>
+            <div class="slot-time">🌅 Mañana (apertura ~8:30–9:00)</div>
+            <div class="slot-title">Parque do Caracol — cascata + sendero</div>
+            <div class="slot-desc">Cascada de 131 m en plena mata nativa. Sendero bien señalizado, apto para todas las edades del grupo. Hay bondinho (teleférico) y zip line opcionales para los más grandes. Duración: 2–2,5 h sin apuros. Los niños van a alucinar con la cascada.</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line"><div class="slot-dot afternoon"></div><div class="connector"></div></div>
           <div class="slot-body">
-            <div class="slot-time">🌤️ Mediodía (12:30–14:30)</div>
-            <div class="slot-title">Almuerzo + siesta / descanso</div>
-            <div class="slot-desc">Comer cerca o volver al alojamiento. Evitar parques entre 12:00–14:00 (pico de colas + niños cansados). Siesta corta si los más chicos la necesitan.</div>
+            <div class="slot-time">🌤️ Mediodía (12:00–13:30)</div>
+            <div class="slot-title">Almuerzo en Canela</div>
+            <div class="slot-desc">Canela tiene buenas opciones en el centro, a pocos minutos del parque. Momento de descanso para los más chicos.</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line"><div class="slot-dot free"></div><div class="connector"></div></div>
           <div class="slot-body">
-            <div class="slot-time">🌿 Tarde (15:00–17:30)</div>
-            <div class="slot-title">Lago Negro — pedalinho + patos</div>
-            <div class="slot-desc">Paseo relajado alrededor del lago. Pedalinho si les dan las ganas (mejor llegar antes de las 16:00). Los niños adoran los patos y el espacio para correr. Gratis, excepto pedalinho (~R$ 80–100 el grupo).</div>
+            <div class="slot-time">🌿 Tarde (14:00–17:00)</div>
+            <div class="slot-title">Centro de Canela + Catedral de Pedra</div>
+            <div class="slot-desc">La Catedral Nossa Senhora de Lourdes ("Catedral de Pedra") es el ícono de Canela — de acceso libre, impresionante para los chicos. Después, paseo por el centro de Canela: parques, heladerías, artesanías. Todo gratis o muy barato.</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line"><div class="slot-dot evening"></div></div>
           <div class="slot-body">
             <div class="slot-time">🌙 Noche</div>
-            <div class="slot-title">Cena en Gramado (19:00)</div>
-            <div class="slot-desc">Mañana es el día más intenso: Terra Mágica en Canela. Preparar los bolsos (llevar cochecito) y acostarse a hora razonable.</div>
+            <div class="slot-title">Regreso a Gramado + cena</div>
+            <div class="slot-desc">Cena en Gramado. Día tranquilo mañana: es el día del chocolate y los lagos.</div>
           </div>
         </div>
       </div>
       <div class="day-footer">
-        <div class="day-tip">💡 <b>Plan lluvia:</b> si llueve, saltar el Lago Negro y adelantar el día de Acquamotion (interior). Mini Mundo aguanta lluvia leve con piloto + calzado cerrado.</div>
+        <div class="day-tip">💡 <b>Plan lluvia:</b> el sendero de Caracol puede hacerse con lluvia leve (llevar piloto), pero el bondinho puede estar suspendido. La Catedral de Pedra es visita exterior — con lluvia fuerte, reducir a la visita rápida y volver a Gramado.</div>
         <div class="badges" style="margin:0">
-          <span class="badge">R$ 108 · adulto (promo online)</span>
-          <span class="badge">R$ 64 · niño 3–15</span>
+          <span class="badge">~R$ 50–55 · adulto (Caracol)</span>
+          <span class="badge">~R$ 25–30 · niño (Caracol)</span>
+          <span class="badge">Gratis · Catedral de Pedra</span>
         </div>
       </div>
       <div class="votes-section" data-day="day2">
@@ -278,67 +289,53 @@
         <div class="day-title">
           <div class="day-num">3</div>
           <div>
-            <div class="day-name">Terra Mágica Florybal (día completo)</div>
-            <div class="day-date">Martes 31 de marzo · Día exterior · Canela</div>
+            <div class="day-name">Día del chocolate + Lago Negro</div>
+            <div class="day-date">Martes 31 de marzo · Día low-cost · Gramado</div>
           </div>
         </div>
         <div class="badges" style="margin:0">
-          <span class="badge">🦕 Exterior / bosque</span>
-          <span class="badge">💸 ~R$ 1.620 grupo</span>
-          <span class="badge">⚡ Intensidad: <strong>alta</strong></span>
-          <span class="badge">🎟️ Comprar online antes</span>
-          <span class="badge">🚙 Traslado Gramado → Canela</span>
+          <span class="badge">🍫 Chocolate</span>
+          <span class="badge">💸 Casi gratis</span>
+          <span class="badge">⚡ Intensidad: <strong>baja</strong></span>
+          <span class="badge">🌊 Lago Negro</span>
         </div>
       </div>
       <div class="timeline">
         <div class="slot">
-          <div class="slot-line"><div class="slot-dot travel"></div><div class="connector"></div></div>
-          <div class="slot-body">
-            <div class="slot-time">🚀 Mañana (8:30)</div>
-            <div class="slot-title">Salida hacia Canela</div>
-            <div class="slot-desc">Canela está a ~8 km de Gramado (15–20 min en auto). Salir con tiempo para llegar cerca de la apertura. Llevar snacks, agua y cochecito si hay niños de 3–4 años.</div>
-          </div>
-        </div>
-        <div class="slot">
           <div class="slot-line"><div class="slot-dot morning"></div><div class="connector"></div></div>
           <div class="slot-body">
-            <div class="slot-time">🌅 Mañana (9:00 apertura)</div>
-            <div class="slot-title">Terra Mágica Florybal — priorizar juguetes con cola</div>
-            <div class="slot-desc">Bosque temático con dinosaurios, personajes y shows. Es grande con subidas y bajadas. Primeras 2 horas: ir directamente a las atracciones con más demanda antes de que se llene.</div>
+            <div class="slot-time">🌅 Mañana (9:30–12:00)</div>
+            <div class="slot-title">Tour de fábricas de chocolate por Gramado</div>
+            <div class="slot-desc">Gramado es famosa por su tradición chocolatera de influencia alemana. Varias fábricas ofrecen visita guiada gratuita o de bajo costo con degustación incluida: Caracol Chocolates, Ipelândia, Hammonia, entre otras. Los niños flipan viendo cómo se hace el chocolate y probando en el camino. Llevar plata para comprar.</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line"><div class="slot-dot afternoon"></div><div class="connector"></div></div>
           <div class="slot-body">
-            <div class="slot-time">🌤️ Mediodía (12:00–13:30)</div>
-            <div class="slot-title">Almuerzo dentro del parque + descanso</div>
-            <div class="slot-desc">Aprovechar para comer tranquilos mientras el parque está en su pico de visitas. Llevar snacks propios para reducir gasto.</div>
+            <div class="slot-time">🌤️ Mediodía (12:00–14:30)</div>
+            <div class="slot-title">Almuerzo + siesta / descanso</div>
+            <div class="slot-desc">Después de tanto chocolate, un almuerzo liviano y descanso. Buena oportunidad para que los más chicos hagan siesta.</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line"><div class="slot-dot free"></div><div class="connector"></div></div>
           <div class="slot-body">
-            <div class="slot-time">🌿 Tarde (13:30–17:00)</div>
-            <div class="slot-title">Shows + zonas que quedaron pendientes</div>
-            <div class="slot-desc">Media tarde es buen momento para shows y zonas más tranquilas. Salir antes de las 17:30 para evitar la salida masiva.</div>
+            <div class="slot-time">🌿 Tarde (15:00–17:30)</div>
+            <div class="slot-title">Lago Negro — pedalinho + patos + picnic</div>
+            <div class="slot-desc">El clásico de Gramado: paseo alrededor del lago, patos, pedalinho. Llevar algo de merienda para hacer un mini-picnic. Los niños pueden correr libremente. Gratis (pedalinho aparte).</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line"><div class="slot-dot evening"></div></div>
           <div class="slot-body">
             <div class="slot-time">🌙 Noche</div>
-            <div class="slot-title">Regreso a Gramado + cena ligera</div>
-            <div class="slot-desc">Noche tranquila: los niños van a estar agotados. Mañana es día de agua — preparar bolsos con traje de baño antes de dormir.</div>
+            <div class="slot-title">Cena en Gramado</div>
+            <div class="slot-desc">Noche tranquila. Mañana es el primer parque de atracciones grande: Mini Mundo. Preparar el día con los chicos.</div>
           </div>
         </div>
       </div>
       <div class="day-footer">
-        <div class="day-tip">💡 <b>Plan lluvia:</b> si llueve fuerte, intercambiar con el día de Acquamotion (interior). · <b>Opcional:</b> Parque do Caracol está a 5 min en Canela — si el grupo tiene energía, se puede ir a la apertura (8:30) y pasar 1–1,5 h antes de Terra Mágica.</div>
-        <div class="badges" style="margin:0">
-          <span class="badge">R$ 180 · adulto</span>
-          <span class="badge">R$ 90 · niño (ver reglas del parque)</span>
-          <span class="badge">Gratis · 0–3 años</span>
-        </div>
+        <div class="day-tip">💡 <b>Fábricas recomendadas:</b> Caracol Chocolates (visitación gratuita con tienda), Hammonia (degustación libre), Ipelândia. Google Maps tiene horarios actualizados. Llamar o buscar online el día anterior para confirmar.</div>
       </div>
       <div class="votes-section" data-day="day3">
         <div class="votes-hint">Tocá tu nombre si te gusta este día</div>
@@ -360,41 +357,41 @@
         <div class="day-title">
           <div class="day-num">4</div>
           <div>
-            <div class="day-name">Acquamotion — parque acuático cubierto</div>
-            <div class="day-date">Miércoles 1 de abril · Día interior · Gramado</div>
+            <div class="day-name">Mini Mundo + tarde libre</div>
+            <div class="day-date">Miércoles 1 de abril · Día exterior · Gramado</div>
           </div>
         </div>
         <div class="badges" style="margin:0">
-          <span class="badge">🏊 Interior / cubierto</span>
-          <span class="badge">💸 ~R$ 1.700 grupo</span>
-          <span class="badge">⚡ Intensidad: <strong>media-alta</strong></span>
+          <span class="badge">🌳 Exterior</span>
+          <span class="badge">💸 ~R$ 1.030 grupo</span>
+          <span class="badge">⚡ Intensidad: <strong>media</strong></span>
           <span class="badge">🎟️ Comprar online antes</span>
-          <span class="badge">☔ Ideal si llueve</span>
+          <span class="badge">🏰 Parque pago #1 de 2</span>
         </div>
       </div>
       <div class="timeline">
         <div class="slot">
           <div class="slot-line"><div class="slot-dot morning"></div><div class="connector"></div></div>
           <div class="slot-body">
-            <div class="slot-time">🌅 Mañana (apertura)</div>
-            <div class="slot-title">Acquamotion — llegar a la apertura</div>
-            <div class="slot-desc">Parque acuático cubierto con piscinas climatizadas. Alta capacidad, colas bajas. Prioridad al entrar: hacer los lockers antes de ponerse a jugar. Zonas infantiles diferenciadas para 1–5 años y 6–12 años.</div>
+            <div class="slot-time">🌅 Mañana (9:00 apertura)</div>
+            <div class="slot-title">Mini Mundo — llegar a la apertura</div>
+            <div class="slot-desc">Ciudad en miniatura, todo 24× más pequeño. Perfecto para 3–10 años: caminata tranquila, fotos, búsqueda de detalles escondidos. Duración: 2–2,5 h. Colas bajas si se llega temprano.</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line"><div class="slot-dot afternoon"></div><div class="connector"></div></div>
           <div class="slot-body">
-            <div class="slot-time">🌤️ Tarde</div>
-            <div class="slot-title">Continuar + almuerzo en el parque o cercanías</div>
-            <div class="slot-desc">Día de agua completo. Los niños más chicos pueden cansarse antes — prever zona de descanso. No hay apuro si el grupo aguanta bien.</div>
+            <div class="slot-time">🌤️ Mediodía (12:30–14:30)</div>
+            <div class="slot-title">Almuerzo + descanso / siesta</div>
+            <div class="slot-desc">Comer cerca o volver al alojamiento. Pausa obligada para los más chicos.</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line"><div class="slot-dot free"></div><div class="connector"></div></div>
           <div class="slot-body">
-            <div class="slot-time">🛍️ Tarde (17:00+)</div>
-            <div class="slot-title">Centro de Gramado — chocolaterías + compras</div>
-            <div class="slot-desc">Tarde libre: souvenirs, chocolaterías, plazas. Si los niños están agotados, directamente al alojamiento a descansar.</div>
+            <div class="slot-time">🌿 Tarde (15:00–17:30)</div>
+            <div class="slot-title">Tarde libre — centro de Gramado a elección</div>
+            <div class="slot-desc">Sin plan rígido: plaza, helados, chocolaterías, Rua Coberta (calle cubierta del centro). Los niños pueden ir a algún parque o playground del centro. Si el grupo tiene energía: vuelta rápida al Lago Joaquina para la foto del atardecer.</div>
           </div>
         </div>
         <div class="slot">
@@ -402,15 +399,15 @@
           <div class="slot-body">
             <div class="slot-time">🌙 Noche</div>
             <div class="slot-title">Cena en Gramado (19:00)</div>
-            <div class="slot-desc">Mañana es Vila da Mônica — preparar el día con los chicos (van a emocionarse con los personajes de la Mônica).</div>
+            <div class="slot-desc">Mañana es el segundo (y último) parque de atracciones grande: Vila da Mônica — el favorito de los niños más chicos.</div>
           </div>
         </div>
       </div>
       <div class="day-footer">
-        <div class="day-tip">💡 <b>Llevar:</b> traje de baño, ojotas, toalla (o alquilar ahí). Calzado de agua para los chicos. Ropa de abrigo para la salida (frío al salir del agua).</div>
+        <div class="day-tip">💡 <b>Plan lluvia:</b> Mini Mundo aguanta lluvia leve (piloto + calzado cerrado). Si llueve fuerte, mover Mini Mundo a otro día y usar esta tarde para Vila da Mônica (interior) si es que las entradas lo permiten.</div>
         <div class="badges" style="margin:0">
-          <span class="badge">R$ 164,50 · adulto</span>
-          <span class="badge">R$ 119,50 · niño 4–11</span>
+          <span class="badge">R$ 108 · adulto (promo online)</span>
+          <span class="badge">R$ 64 · niño 3–15</span>
         </div>
       </div>
       <div class="votes-section" data-day="day4">
@@ -442,6 +439,7 @@
           <span class="badge">💸 ~R$ 2.270 grupo</span>
           <span class="badge">⚡ Intensidad: <strong>media</strong></span>
           <span class="badge">🎟️ Comprar online antes</span>
+          <span class="badge">🏰 Parque pago #2 de 2</span>
           <span class="badge">🧒 Ideal 3–8 años</span>
         </div>
       </div>
@@ -451,7 +449,7 @@
           <div class="slot-body">
             <div class="slot-time">🌅 Mañana (apertura)</div>
             <div class="slot-title">Vila da Mônica — llegar a la apertura</div>
-            <div class="slot-desc">Parque infantil temático (Turma da Mônica): personajes, atracciones para chicos, shows. Muy popular — imprescindible llegar a la apertura. Definir punto de encuentro del grupo antes de entrar.</div>
+            <div class="slot-desc">Parque infantil temático (Turma da Mônica): personajes, atracciones para chicos, shows. Muy popular — imprescindible llegar a la apertura. Definir punto de encuentro del grupo antes de entrar (son 3 familias).</div>
           </div>
         </div>
         <div class="slot">
@@ -459,15 +457,15 @@
           <div class="slot-body">
             <div class="slot-time">🌤️ Tarde</div>
             <div class="slot-title">Shows + fotos con personajes + almuerzo</div>
-            <div class="slot-desc">Coordinar horarios de shows desde la entrada. Los niños de 3–8 años son los que más disfrutan. Los de 9–10 pueden aburrirse antes — tenerlo en cuenta para la salida.</div>
+            <div class="slot-desc">Coordinar horarios de shows desde la entrada. Los niños de 3–8 años son los que más disfrutan. Los de 9–10 pueden aburrirse antes — tenerlo en cuenta.</div>
           </div>
         </div>
         <div class="slot">
           <div class="slot-line"><div class="slot-dot free"></div><div class="connector"></div></div>
           <div class="slot-body">
             <div class="slot-time">🌆 Tarde-noche</div>
-            <div class="slot-title">Última vuelta por el centro + Lago Joaquina</div>
-            <div class="slot-desc">Si salen con energía, paseo rápido al Lago Joaquina o chocolatería en el centro. Mañana es el día del regreso: empacar valijas antes de dormir.</div>
+            <div class="slot-title">Última vuelta por el centro</div>
+            <div class="slot-desc">Compras finales, chocolates para llevar, paseo libre. Mañana es el día del regreso: empacar valijas antes de dormir.</div>
           </div>
         </div>
         <div class="slot">
@@ -480,7 +478,7 @@
         </div>
       </div>
       <div class="day-footer">
-        <div class="day-tip">💡 <b>Plan lluvia:</b> Vila da Mônica es interior, la lluvia no afecta. El más flexible para mover si hubo que reorganizar días anteriores por clima.</div>
+        <div class="day-tip">💡 <b>Plan lluvia:</b> Vila da Mônica es interior, la lluvia no afecta. Es Jueves Santo — algunos restaurantes pueden estar cerrados o llenos; reservar cena con anticipación.</div>
         <div class="badges" style="margin:0">
           <span class="badge">~R$ 199 · adulto (promo online)</span>
           <span class="badge">~R$ 179 · niño (promo online)</span>
@@ -580,19 +578,21 @@
             </tr>
           </thead>
           <tbody>
+            <tr><td>Parque do Caracol</td><td><span class="badge" style="display:inline">💧 Exterior</span></td><td>~R$ 480</td></tr>
             <tr><td>Mini Mundo</td><td><span class="badge" style="display:inline">🌳 Exterior</span></td><td>~R$ 1.030</td></tr>
-            <tr><td>Terra Mágica Florybal</td><td><span class="badge" style="display:inline">🦕 Exterior</span></td><td>~R$ 1.620</td></tr>
-            <tr><td>Acquamotion</td><td><span class="badge" style="display:inline">🏊 Interior</span></td><td>~R$ 1.700</td></tr>
             <tr><td>Vila da Mônica</td><td><span class="badge" style="display:inline">🏠 Interior</span></td><td>~R$ 2.270</td></tr>
+            <tr><td>Catedral de Pedra</td><td><span class="badge" style="display:inline">⛪ Gratis</span></td><td>Gratis</td></tr>
+            <tr><td>Tour de chocolates</td><td><span class="badge" style="display:inline">🍫 Gratis</span></td><td>Gratis (compras opcionales)</td></tr>
             <tr><td>Lagos + paseos</td><td><span class="badge" style="display:inline">🌊 Libre</span></td><td>Gratis (pedalinho ~R$ 80–100)</td></tr>
-            <tr class="total"><td colspan="2"><b>Total entradas (12 personas)</b></td><td>~R$ 6.620–6.720</td></tr>
-            <tr class="total"><td colspan="2"><b>Por familia (2 adultos + 2 niños)</b></td><td>~R$ 2.200–2.240</td></tr>
+            <tr class="total"><td colspan="2"><b>Total entradas (12 personas)</b></td><td>~R$ 3.780–3.880</td></tr>
+            <tr class="total"><td colspan="2"><b>Por familia (2 adultos + 2 niños)</b></td><td>~R$ 1.260–1.295</td></tr>
+            <tr class="saving"><td colspan="2"><b>Ahorro vs Opción A</b></td><td>~R$ 2.500–2.800</td></tr>
           </tbody>
         </table>
         <div class="small" style="margin-top:12px">⚠️ Precios estimados. No incluye alojamiento, comidas ni traslados. Verificar precios actuales antes de comprar.</div>
         <div class="actions">
           <a class="btn" href="index.html">🎯 Ver detalle de parques y entradas</a>
-          <a class="btn" href="itinerario_b.html">🅱️ Comparar con Opción B</a>
+          <a class="btn" href="itinerario_a.html">🅰️ Comparar con Opción A</a>
         </div>
       </div>
     </article>
@@ -608,21 +608,21 @@
       <div style="padding:16px">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div>
-            <div class="small"><b>Logística del grupo</b></div>
+            <div class="small"><b>Por qué esta opción puede ser mejor</b></div>
             <ul>
-              <li>Definir un adulto "coordinador" por día para no tomar decisiones en tiempo real con 12 personas.</li>
-              <li>Punto de encuentro fijo en cada parque (entrada o mapa descargado).</li>
-              <li>Grupo de WhatsApp con horarios del día subidos cada mañana.</li>
-              <li>Turno de cochecito: si solo 1 familia tiene cochecito, rotarlo si es necesario.</li>
+              <li>Ritmo más relajado: hay un día casi sin plan fijo (Día 3), menos presión de "cumplir parque".</li>
+              <li>Los niños de 3–5 años disfrutan igual el chocolate y el lago que un parque temático.</li>
+              <li>Ahorro ~R$ 2.500 del grupo = puede redirigirse a cenas, chocolates o souvenirs.</li>
+              <li>Menos logística: 2 días de Canela concentrados (Día 2) en vez de 1 apurado.</li>
             </ul>
           </div>
           <div>
             <div class="small"><b>Clima y contingencias</b></div>
             <ul>
               <li>Otoño en Gramado: frío por las mañanas y noches (8–15°C). Llevar abrigo para todos.</li>
-              <li>Lluvia posible cualquier día: los días interiores (Acquamotion, Vila da Mônica) son el plan B natural.</li>
+              <li>Solo 1 día interior pagado (Vila da Mônica) — si llueve mucho, el día de chocolate es plan B perfecto.</li>
               <li>Comprar entradas online con al menos 2–3 días de antelación.</li>
-              <li>Cancelación / cambio de fecha: verificar política de cada parque al comprar.</li>
+              <li>Para Parque do Caracol: bondinho y zip line suspendidos con lluvia fuerte.</li>
             </ul>
           </div>
         </div>
@@ -654,13 +654,13 @@
 
 <footer>
   <div class="wrap">
-    <b>Opción A</b> — itinerario intensivo: 6 días, 4 parques (29 mar – 3 abr). Regreso a Montevideo el viernes.
-    <br/>⬅️ <a href="index.html">Ver parques en detalle</a> · <a href="gramado_lagos.html">Ver lagos</a> · <a href="itinerario_b.html">Ver Opción B</a>
+    <b>Opción B</b> — itinerario relajada: 6 días, 2 parques de pago + Caracol + chocolate (29 mar – 3 abr).
+    <br/>⬅️ <a href="index.html">Ver parques en detalle</a> · <a href="gramado_lagos.html">Ver lagos</a> · <a href="itinerario_a.html">Ver Opción A</a>
   </div>
 </footer>
 
 <script>
-  const PAGE = 'itinerario_a';
+  const PAGE = 'itinerario_b';
   const PEOPLE = [
     {id:'nano',   name:'Nano',   color:'#60a5fa'},
     {id:'ina',    name:'Ina',    color:'#f472b6'},

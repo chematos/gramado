@@ -84,8 +84,37 @@ Incluye: precios, tips anti-estrés, links a entradas y videos de YouTube.
 
 ---
 
+---
+
+## Reglas de contenido fijas (aplicar a todos los itinerarios)
+
+- **Parque do Caracol (Canela)** debe aparecer en todos los itinerarios. Es una cascada de 131 m en mata nativa, con sendero fácil apto para todas las edades. Entrada ~R$50 adulto / ~R$25 niño. Hay bondinho y zip line opcionales.
+- **Canela** debe aparecer como destino en todos los itinerarios (Parque do Caracol y/o centro + Catedral de Pedra).
+- Los itinerarios siempre comienzan el **domingo 29 de marzo al mediodía** (llegada desde Montevideo) y terminan el **viernes 3 de abril** (checkout + regreso en auto a Montevideo).
+
+## Sistema de votos por día
+
+Cada día de itinerario tiene una sección de "me gusta" con 6 botones personales:
+- **Personas:** Nano, Ina, Martín, Caro, Emi, Chema
+- Cada persona vota solo por sí misma (sin auth, basado en confianza)
+- Los votos se guardan en `localStorage` con clave `v_{page_id}` (JSON)
+- Los botones se colorean con el color de cada persona cuando están activos
+- Se muestra quién votó con corazón rojo: "❤️ Nano, Martín, Caro"
+
+## Páginas del proyecto (actualizadas)
+
+### 4. `itinerario_b.html` — Itinerario Opción B (6 días, 2 parques, relajada y low-cost)
+**Scope:** Alternativa más económica (~40% menos en entradas). Solo 2 parques de pago (Mini Mundo + Vila da Mônica), más actividades gratuitas o baratas.
+
+**Días:**
+- Día 1: Llegada + Lago Joaquina
+- Día 2: Canela completo (Parque do Caracol + Catedral de Pedra + centro)
+- Día 3: Gramado low-cost (tour de fábricas de chocolate + Lago Negro)
+- Día 4: Mini Mundo + tarde libre en el centro
+- Día 5: Vila da Mônica (Jueves Santo)
+- Día 6: Checkout + regreso Montevideo
+
 ## Próximas páginas planificadas
 
-- `itinerario_b.html` — Opción B (variante a comparar con Opción A)
 - `itinerario_c.html` — Opción C (si se crea una tercera variante)
 - Posible página de **logística**: traslados, alojamiento, supermercado
