@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Plan de actividades — Gramado Semana Santa 2026</title>
+  <style>
+    :root{
+      --bg:#0b0f14; --card:#121823; --muted:#9fb0c3; --text:#e8f0fa;
+      --pill:#1f2a3a; --ok:#1f9d6a; --mid:#d7a300; --bad:#e05a5a; --line:#243247;
+      --link:#7cc4ff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0b0f14,#070a0f);color:var(--text)}
+    header{padding:28px 18px;border-bottom:1px solid var(--line);background:radial-gradient(900px 400px at 20% 0%,rgba(124,196,255,.14),transparent 60%)}
+    .wrap{max-width:1100px;margin:0 auto}
+    h1{margin:0 0 8px 0;font-size:28px;letter-spacing:.2px}
+    .sub{color:var(--muted);line-height:1.4}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border:1px solid var(--line);background:rgba(31,42,58,.55);border-radius:999px;color:var(--muted);font-size:13px}
+    main{padding:18px}
+    .badges{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 4px}
+    .badge{font-size:11px;color:var(--muted);padding:4px 8px;border-radius:999px;background:rgba(31,42,58,.75);border:1px solid rgba(255,255,255,.08)}
+    .badge strong{color:var(--text);font-weight:600}
+    .small{font-size:12px;color:var(--muted)}
+    footer{padding:22px 18px;border-top:1px solid var(--line);color:var(--muted)}
+
+    /* Ranking */
+    .ranking{background:rgba(18,24,35,.9);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:18px}
+    .ranking-title{font-size:14px;font-weight:700;margin:0 0 14px;color:var(--text)}
+    .rank-list{display:flex;flex-direction:column;gap:0}
+    .rank-item{display:grid;grid-template-columns:28px 1fr auto;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(36,50,71,.4)}
+    .rank-item:last-child{border-bottom:none}
+    .rank-pos{font-size:16px;text-align:center}
+    .rank-info{min-width:0}
+    .rank-name{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .rank-who{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;min-height:18px}
+    .rank-chip{font-size:10px;padding:2px 7px;border-radius:999px;font-weight:600}
+    .rank-right{text-align:right;flex-shrink:0}
+    .rank-count{font-size:15px;font-weight:700;color:var(--text)}
+    .rank-max{font-size:11px;color:var(--muted)}
+    .rank-bar-wrap{height:4px;background:rgba(36,50,71,.7);border-radius:2px;margin-top:5px;overflow:hidden}
+    .rank-bar{height:100%;border-radius:2px;background:var(--link);transition:width .4s ease}
+
+    /* Activity grid */
+    .act-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .cat-header{grid-column:1/-1;display:flex;align-items:center;gap:10px;padding:6px 0;margin-top:8px;border-bottom:1px solid var(--line)}
+    .cat-title{font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+    .activity-card{background:linear-gradient(180deg,rgba(18,24,35,.95),rgba(18,24,35,.75));border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+    .act-head{padding:16px 16px 0}
+    .act-emoji{font-size:26px;line-height:1}
+    .act-name{font-size:16px;font-weight:700;margin:6px 0 2px}
+    .act-loc{font-size:12px;color:var(--muted)}
+    .act-desc{padding:10px 16px;font-size:13px;color:var(--muted);line-height:1.5;flex:1}
+    .act-links{padding:0 16px 12px;display:flex;flex-wrap:wrap;gap:6px}
+    .act-link{display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:8px;border:1px solid rgba(255,255,255,.1);background:rgba(31,42,58,.4);color:var(--link);font-size:11px;text-decoration:none}
+    .act-link:hover{border-color:rgba(124,196,255,.4);text-decoration:none}
+
+    /* Votes */
+    .votes-section{padding:10px 16px 14px;border-top:1px solid var(--line)}
+    .votes-hint{font-size:11px;color:var(--muted);margin-bottom:7px;opacity:.75}
+    .voters{display:flex;flex-wrap:wrap;gap:5px}
+    .voter-btn{display:inline-flex;align-items:center;gap:4px;padding:5px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(31,42,58,.4);color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit;transition:border-color .15s,background .15s,color .15s}
+    .voter-btn::before{content:'🤍';font-size:11px}
+    .voter-btn.active::before{content:'❤️';font-size:11px}
+    .votes-who{margin-top:7px;font-size:12px;color:var(--muted);min-height:16px}
+
+    /* Nota de verificación */
+    .verify-note{font-size:11px;color:var(--mid);margin-top:6px;padding:5px 8px;background:rgba(215,163,0,.08);border:1px solid rgba(215,163,0,.2);border-radius:8px}
+
+    @media(max-width:860px){
+      .act-grid{grid-template-columns:1fr}
+      .cat-header{grid-column:1/-1}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Plan de actividades — votá tus favoritas</h1>
+    <div class="sub">
+      Cada persona marca las actividades que le gustan. Al terminar las votaciones, armamos el itinerario definitivo en base al resultado.
+      <br/>Los votos se guardan en tu dispositivo. <b>Votá solo las tuyas</b> — no hay forma de votar por otro.
+    </div>
+    <div class="meta">
+      <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">🎯 Ver parques</a>
+      <a class="pill" href="itinerario_a.html" style="color:var(--text);text-decoration:none">🅰️ Opción A</a>
+      <a class="pill" href="itinerario_b.html" style="color:var(--text);text-decoration:none">🅱️ Opción B</a>
+      <span class="pill">📅 29 mar – 3 abr 2026</span>
+      <span class="pill">👥 Nano · Ina · Martín · Caro · Emi · Chema</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Ranking en vivo -->
+  <div class="ranking">
+    <div class="ranking-title">🏆 Ranking de votaciones — en vivo</div>
+    <div class="rank-list" id="ranking"></div>
+  </div>
+
+  <!-- Actividades -->
+  <div class="act-grid">
+
+    <!-- Parques grandes -->
+    <div class="cat-header">
+      <span class="cat-title">🎢 Parques de atracciones</span>
+    </div>
+
+    <!-- Mini Mundo -->
+    <div class="activity-card" id="card-minimundo">
+      <div class="act-head">
+        <div class="act-emoji">🏰</div>
+        <div class="act-name">Mini Mundo</div>
+        <div class="act-loc">📍 Gramado</div>
+        <div class="badges">
+          <span class="badge">🌳 Exterior</span>
+          <span class="badge">👶 3–10 años (ideal)</span>
+          <span class="badge">⏳ Colas: <strong>bajas</strong></span>
+          <span class="badge">💸 R$ 108 adulto / R$ 64 niño</span>
+          <span class="badge">💰 Grupo: <strong>~R$ 1.030</strong></span>
+        </div>
+      </div>
+      <div class="act-desc">Ciudad en miniatura (todo 24× más pequeño). Caminata tranquila con fotos, búsqueda de detalles escondidos. Perfecto para cualquier edad del grupo. Sin "adrenalina", muy familiar. Colas bajas si se llega a la apertura.</div>
+      <div class="act-links">
+        <a class="act-link" href="https://minimundo.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+        <a class="act-link" href="https://ingressos.minimundo.com.br/produto/vitrine/ingressos-minimundo" target="_blank" rel="noopener">🎟️ Entradas</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Mini+Mundo+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-act="minimundo">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('minimundo','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('minimundo','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('minimundo','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('minimundo','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('minimundo','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('minimundo','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Terra Mágica Florybal -->
+    <div class="activity-card" id="card-florybal">
+      <div class="act-head">
+        <div class="act-emoji">🦕</div>
+        <div class="act-name">Terra Mágica Florybal</div>
+        <div class="act-loc">📍 Canela</div>
+        <div class="badges">
+          <span class="badge">🌳 Exterior / bosque</span>
+          <span class="badge">👶 4–10 años</span>
+          <span class="badge">⏳ Colas: <strong>medias</strong></span>
+          <span class="badge">💸 R$ 180 adulto / R$ 90 niño</span>
+          <span class="badge">💰 Grupo: <strong>~R$ 1.620</strong></span>
+        </div>
+      </div>
+      <div class="act-desc">Bosque temático con dinosaurios, personajes y shows. Día completo, con subidas y bajadas — llevar cochecito. Muy recomendado para los niños de 4–10. Está en Canela (15–20 min de Gramado).</div>
+      <div class="act-links">
+        <a class="act-link" href="https://parqueflorybal.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+        <a class="act-link" href="https://ingresso.parqueterramagicaflorybal.com.br/en/passaporte-terra-magica-florybal" target="_blank" rel="noopener">🎟️ Entradas</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Terra+Magica+Florybal+Canela" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-act="florybal">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('florybal','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('florybal','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('florybal','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('florybal','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('florybal','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('florybal','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Acquamotion -->
+    <div class="activity-card" id="card-acquamotion">
+      <div class="act-head">
+        <div class="act-emoji">🏊</div>
+        <div class="act-name">Acquamotion</div>
+        <div class="act-loc">📍 Gramado</div>
+        <div class="badges">
+          <span class="badge">🏠 Interior / cubierto</span>
+          <span class="badge">👶 3–10 años</span>
+          <span class="badge">⏳ Colas: <strong>bajas</strong></span>
+          <span class="badge">💸 R$ 164 adulto / R$ 119 niño</span>
+          <span class="badge">💰 Grupo: <strong>~R$ 1.700</strong></span>
+          <span class="badge">☔ Ideal si llueve</span>
+        </div>
+      </div>
+      <div class="act-desc">Parque acuático cubierto con piscinas climatizadas. Alta capacidad, bueno para días de lluvia. Zonas infantiles separadas por edades. Llevar traje de baño, toalla y calzado de agua.</div>
+      <div class="act-links">
+        <a class="act-link" href="https://acquamotion.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+        <a class="act-link" href="https://acquamotion.oneriopass.com/" target="_blank" rel="noopener">🎟️ Entradas</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Acquamotion+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-act="acquamotion">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('acquamotion','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('acquamotion','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('acquamotion','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('acquamotion','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('acquamotion','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('acquamotion','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Vila da Mônica -->
+    <div class="activity-card" id="card-vilamonica">
+      <div class="act-head">
+        <div class="act-emoji">🎭</div>
+        <div class="act-name">Vila da Mônica</div>
+        <div class="act-loc">📍 Gramado</div>
+        <div class="badges">
+          <span class="badge">🏠 Interior</span>
+          <span class="badge">👶 3–8 años (ideal)</span>
+          <span class="badge">⏳ Colas: <strong>medias</strong></span>
+          <span class="badge">💸 ~R$ 199 adulto / ~R$ 179 niño</span>
+          <span class="badge">💰 Grupo: <strong>~R$ 2.270</strong></span>
+        </div>
+      </div>
+      <div class="act-desc">Parque infantil temático de la Turma da Mônica: personajes, shows, atracciones para los más chicos. El más caro pero también el favorito de los 3–8 años. Interior, no afecta la lluvia. Llegar a la apertura.</div>
+      <div class="act-links">
+        <a class="act-link" href="https://viladamonica.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+        <a class="act-link" href="https://viladamonica.com.br/ingressos/" target="_blank" rel="noopener">🎟️ Entradas</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Vila+da+Monica+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-act="vilamonica">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('vilamonica','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('vilamonica','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('vilamonica','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('vilamonica','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('vilamonica','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('vilamonica','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Naturaleza -->
+    <div class="cat-header">
+      <span class="cat-title">🌿 Naturaleza y aire libre</span>
+    </div>
+
+    <!-- Parque do Caracol -->
+    <div class="activity-card" id="card-caracol">
+      <div class="act-head">
+        <div class="act-emoji">💧</div>
+        <div class="act-name">Parque do Caracol</div>
+        <div class="act-loc">📍 Canela</div>
+        <div class="badges">
+          <span class="badge">🌳 Exterior</span>
+          <span class="badge">👶 Todas las edades</span>
+          <span class="badge">⏳ Colas: <strong>bajas</strong></span>
+          <span class="badge">💸 ~R$ 50 adulto / ~R$ 25 niño</span>
+          <span class="badge">💰 Grupo: <strong>~R$ 480</strong></span>
+        </div>
+      </div>
+      <div class="act-desc">Cascada de 131 m de altura en mata nativa. Sendero fácil y bien señalizado, apto para niños de 3 años en adelante. Bondinho (teleférico) y zip line opcionales para los más grandes. En Canela (15–20 min de Gramado).</div>
+      <div class="act-links">
+        <a class="act-link" href="https://www.parquecaracol.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Parque+do+Caracol+Canela" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-act="caracol">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('caracol','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('caracol','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('caracol','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('caracol','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('caracol','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('caracol','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Lago Negro -->
+    <div class="activity-card" id="card-lagoNegro">
+      <div class="act-head">
+        <div class="act-emoji">🦆</div>
+        <div class="act-name">Lago Negro</div>
+        <div class="act-loc">📍 Gramado</div>
+        <div class="badges">
+          <span class="badge">🌳 Exterior</span>
+          <span class="badge">💸 <strong>Gratis</strong> (pedalinho pago)</span>
+          <span class="badge">⏳ Colas: <strong>nulas</strong></span>
+        </div>
+      </div>
+      <div class="act-desc">El clásico de Gramado: sendero alrededor del lago, patos, pedalinho y zona de picnic. Ideal para "bajar revoluciones" entre parques. Los niños corren libremente. El pedalinho tiene cola solo en el pico del mediodía.</div>
+      <div class="act-links">
+        <a class="act-link" href="gramado_lagos.html">📄 Ver más info</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Lago+Negro+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-act="lagoNegro">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('lagoNegro','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('lagoNegro','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('lagoNegro','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('lagoNegro','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('lagoNegro','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('lagoNegro','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Lago Joaquina -->
+    <div class="activity-card" id="card-lagoJoaquina">
+      <div class="act-head">
+        <div class="act-emoji">🌅</div>
+        <div class="act-name">Lago Joaquina Rita Bier</div>
+        <div class="act-loc">📍 Gramado</div>
+        <div class="badges">
+          <span class="badge">🌳 Exterior</span>
+          <span class="badge">💸 <strong>Gratis</strong></span>
+          <span class="badge">⏳ Colas: <strong>nulas</strong></span>
+        </div>
+      </div>
+      <div class="act-desc">Lago céntrico y fotogénico, con caminata más corta que el Lago Negro. Ideal como paseo express (1–1,5 h) para el primer o último día. Los niños tienen espacio para correr. Bueno al atardecer para fotos.</div>
+      <div class="act-links">
+        <a class="act-link" href="gramado_lagos.html">📄 Ver más info</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Lago+Joaquina+Rita+Bier+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-act="lagoJoaquina">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('lagoJoaquina','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('lagoJoaquina','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('lagoJoaquina','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('lagoJoaquina','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('lagoJoaquina','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('lagoJoaquina','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Zoo -->
+    <div class="activity-card" id="card-zoo">
+      <div class="act-head">
+        <div class="act-emoji">🦁</div>
+        <div class="act-name">Zoológico de Gramado</div>
+        <div class="act-loc">📍 Gramado</div>
+        <div class="badges">
+          <span class="badge">🌳 Exterior</span>
+          <span class="badge">👶 Todas las edades</span>
+          <span class="badge">💸 A confirmar</span>
+        </div>
+        <div class="verify-note">⚠️ Verificar nombre exacto, horarios y precios antes del viaje. Buscar "Zoológico Gramado" o "Gramado Zoo" en Maps para confirmar ubicación y si está abierto en Semana Santa.</div>
+      </div>
+      <div class="act-desc">Opción de contacto con animales en la región de Gramado. Puede ser el zoológico municipal o un parque de fauna nativa. Ideal para los niños más chicos (3–6) que disfrutan ver animales de cerca. Confirmar disponibilidad y precios.</div>
+      <div class="act-links">
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=zoologico+Gramado+RS" target="_blank" rel="noopener">📍 Buscar en Maps</a>
+      </div>
+      <div class="votes-section" data-act="zoo">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('zoo','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('zoo','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('zoo','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('zoo','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('zoo','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('zoo','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Bondinhos Aéreos -->
+    <div class="activity-card" id="card-bondinhos">
+      <div class="act-head">
+        <div class="act-emoji">🚡</div>
+        <div class="act-name">Bondinhos Aéreos Gramado–Canela</div>
+        <div class="act-loc">📍 Gramado ↔ Canela</div>
+        <div class="badges">
+          <span class="badge">🌳 Exterior</span>
+          <span class="badge">👶 Todas las edades</span>
+          <span class="badge">⏳ Colas: <strong>variables</strong></span>
+          <span class="badge">💸 A confirmar</span>
+        </div>
+      </div>
+      <div class="act-desc">Teleférico panorámico que une Gramado y Canela sobrevolando el valle. Vistas espectaculares de la mata atlántica y las sierras gaúchas. Una experiencia única que a los niños les encanta. Puede combinarse con una salida a Canela (Caracol, Catedral). Verificar precio y horarios actuales.</div>
+      <div class="act-links">
+        <a class="act-link" href="https://www.bondinhosaereos.com.br/" target="_blank" rel="noopener">🌐 Web</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Bondinhos+Aereos+Gramado" target="_blank" rel="noopener">📍 Maps</a>
+      </div>
+      <div class="votes-section" data-act="bondinhos">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('bondinhos','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('bondinhos','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('bondinhos','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('bondinhos','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('bondinhos','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('bondinhos','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Cultura y sabores -->
+    <div class="cat-header">
+      <span class="cat-title">🍫 Cultura y sabores</span>
+    </div>
+
+    <!-- Chocolate -->
+    <div class="activity-card" id="card-chocolate">
+      <div class="act-head">
+        <div class="act-emoji">🍫</div>
+        <div class="act-name">Tour de fábricas de chocolate</div>
+        <div class="act-loc">📍 Gramado</div>
+        <div class="badges">
+          <span class="badge">🏠 Mixto</span>
+          <span class="badge">👶 Todas las edades</span>
+          <span class="badge">💸 <strong>Gratis</strong> (compras opcionales)</span>
+        </div>
+      </div>
+      <div class="act-desc">Gramado tiene decenas de fábricas de chocolate de influencia alemana, muchas con visita guiada y degustación gratuita. Los niños flipan viendo cómo se hace el chocolate. No requiere reserva: se entra caminando. Bueno para mañana o tarde libre.</div>
+      <div class="act-links">
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=fabricas+chocolate+Gramado" target="_blank" rel="noopener">📍 Fábricas en Maps</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Caracol+Chocolates+Gramado" target="_blank" rel="noopener">🍫 Caracol</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Hammonia+Gramado" target="_blank" rel="noopener">🍫 Hammonia</a>
+      </div>
+      <div class="votes-section" data-act="chocolate">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('chocolate','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('chocolate','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('chocolate','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('chocolate','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('chocolate','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('chocolate','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Catedral de Pedra + Centro Canela -->
+    <div class="activity-card" id="card-canela">
+      <div class="act-head">
+        <div class="act-emoji">⛪</div>
+        <div class="act-name">Centro de Canela + Catedral de Pedra</div>
+        <div class="act-loc">📍 Canela</div>
+        <div class="badges">
+          <span class="badge">🌳 Exterior</span>
+          <span class="badge">👶 Todas las edades</span>
+          <span class="badge">💸 <strong>Gratis</strong></span>
+        </div>
+      </div>
+      <div class="act-desc">La Catedral Nossa Senhora de Lourdes ("Catedral de Pedra") es el ícono de Canela: estructura de piedra imponente, de acceso libre. Combinada con un paseo por el centro — heladerías, artesanías, plazas y parques para los chicos. Ideal para tarde libre en Canela.</div>
+      <div class="act-links">
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Catedral+de+Pedra+Canela" target="_blank" rel="noopener">📍 Catedral</a>
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=centro+Canela+RS" target="_blank" rel="noopener">📍 Centro Canela</a>
+      </div>
+      <div class="votes-section" data-act="canela">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('canela','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('canela','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('canela','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('canela','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('canela','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('canela','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+    <!-- Pizzería Mágica del Héctor -->
+    <div class="activity-card" id="card-hector">
+      <div class="act-head">
+        <div class="act-emoji">🍕</div>
+        <div class="act-name">Pizzería Mágica del Héctor</div>
+        <div class="act-loc">📍 Gramado</div>
+        <div class="badges">
+          <span class="badge">🍕 Cena / almuerzo</span>
+          <span class="badge">👶 Todas las edades</span>
+          <span class="badge">💸 A confirmar</span>
+        </div>
+      </div>
+      <div class="act-desc">Pizzería temática con show incluido: el Héctor hace magia mientras prepara las pizzas. Experiencia gastronómica y de entretenimiento en una sola salida — ideal para una noche con los chicos. Confirmar si hay reserva previa y cuánto dura el show.</div>
+      <div class="act-links">
+        <a class="act-link" href="https://www.google.com/maps/search/?api=1&query=Pizzaria+Magica+Hector+Gramado" target="_blank" rel="noopener">📍 Buscar en Maps</a>
+      </div>
+      <div class="votes-section" data-act="hector">
+        <div class="votes-hint">Tocá tu nombre si querés hacer esta actividad</div>
+        <div class="voters">
+          <button class="voter-btn" data-person="nano"   onclick="toggleVote('hector','nano')">Nano</button>
+          <button class="voter-btn" data-person="ina"    onclick="toggleVote('hector','ina')">Ina</button>
+          <button class="voter-btn" data-person="martin" onclick="toggleVote('hector','martin')">Martín</button>
+          <button class="voter-btn" data-person="caro"   onclick="toggleVote('hector','caro')">Caro</button>
+          <button class="voter-btn" data-person="emi"    onclick="toggleVote('hector','emi')">Emi</button>
+          <button class="voter-btn" data-person="chema"  onclick="toggleVote('hector','chema')">Chema</button>
+        </div>
+        <div class="votes-who"></div>
+      </div>
+    </div>
+
+  </div><!-- /act-grid -->
+</main>
+
+<footer>
+  <div class="wrap">
+    Cuando terminen de votar, compartí el resultado y armamos el itinerario definitivo.
+    <br/>⬅️ <a href="index.html">Ver parques en detalle</a> · <a href="itinerario_a.html">Opción A</a> · <a href="itinerario_b.html">Opción B</a>
+  </div>
+</footer>
+
+<script>
+  const PAGE = 'plan_actividades';
+
+  const PEOPLE = [
+    {id:'nano',   name:'Nano',   color:'#60a5fa'},
+    {id:'ina',    name:'Ina',    color:'#f472b6'},
+    {id:'martin', name:'Martín', color:'#34d399'},
+    {id:'caro',   name:'Caro',   color:'#fb923c'},
+    {id:'emi',    name:'Emi',    color:'#22d3ee'},
+    {id:'chema',  name:'Chema',  color:'#a78bfa'},
+  ];
+
+  const ACTIVITIES = [
+    {id:'minimundo',   name:'Mini Mundo',                    emoji:'🏰'},
+    {id:'florybal',    name:'Terra Mágica Florybal',         emoji:'🦕'},
+    {id:'acquamotion', name:'Acquamotion',                   emoji:'🏊'},
+    {id:'vilamonica',  name:'Vila da Mônica',                emoji:'🎭'},
+    {id:'caracol',     name:'Parque do Caracol',             emoji:'💧'},
+    {id:'lagoNegro',   name:'Lago Negro',                    emoji:'🦆'},
+    {id:'lagoJoaquina',name:'Lago Joaquina Rita Bier',       emoji:'🌅'},
+    {id:'zoo',         name:'Zoológico de Gramado',          emoji:'🦁'},
+    {id:'bondinhos',   name:'Bondinhos Aéreos',              emoji:'🚡'},
+    {id:'chocolate',   name:'Tour de chocolates',            emoji:'🍫'},
+    {id:'canela',      name:'Centro Canela + Catedral',      emoji:'⛪'},
+    {id:'hector',      name:'Pizzería Mágica del Héctor',   emoji:'🍕'},
+  ];
+
+  const MEDALS = ['🥇','🥈','🥉'];
+
+  function getVotes(){ return JSON.parse(localStorage.getItem('v_'+PAGE)||'{}'); }
+  function saveVotes(v){ localStorage.setItem('v_'+PAGE, JSON.stringify(v)); }
+
+  function toggleVote(actId, personId){
+    const v = getVotes();
+    if(!v[actId]) v[actId] = [];
+    const i = v[actId].indexOf(personId);
+    if(i >= 0) v[actId].splice(i,1); else v[actId].push(personId);
+    saveVotes(v);
+    renderAll();
+  }
+
+  function renderVotes(){
+    const v = getVotes();
+    document.querySelectorAll('.votes-section').forEach(sec => {
+      const actId = sec.dataset.act;
+      const actVotes = v[actId] || [];
+      sec.querySelectorAll('.voter-btn').forEach(btn => {
+        const pid = btn.dataset.person;
+        const person = PEOPLE.find(p => p.id === pid);
+        const active = actVotes.includes(pid);
+        btn.classList.toggle('active', active);
+        if(active){
+          btn.style.borderColor = person.color + 'aa';
+          btn.style.background  = person.color + '22';
+          btn.style.color       = person.color;
+        } else {
+          btn.style.borderColor = '';
+          btn.style.background  = '';
+          btn.style.color       = '';
+        }
+      });
+      const whoEl = sec.querySelector('.votes-who');
+      if(whoEl){
+        if(!actVotes.length){ whoEl.textContent = ''; return; }
+        const names = actVotes.map(id => PEOPLE.find(p => p.id === id)?.name).filter(Boolean);
+        whoEl.textContent = '❤️ ' + names.join(', ');
+      }
+    });
+  }
+
+  function renderRanking(){
+    const v = getVotes();
+    const sorted = ACTIVITIES.map(a => ({
+      ...a,
+      voters: v[a.id] || []
+    })).sort((a,b) => b.voters.length - a.voters.length);
+
+    const maxVotes = 6;
+    const rankEl = document.getElementById('ranking');
+
+    rankEl.innerHTML = sorted.map((a, i) => {
+      const count = a.voters.length;
+      const pct = Math.round((count / maxVotes) * 100);
+      const medal = i < 3 && count > 0 ? MEDALS[i] : `<span style="color:var(--muted);font-size:12px">${i+1}</span>`;
+
+      const chips = a.voters.map(pid => {
+        const p = PEOPLE.find(x => x.id === pid);
+        if(!p) return '';
+        return `<span class="rank-chip" style="background:${p.color}22;color:${p.color};border:1px solid ${p.color}55">${p.name}</span>`;
+      }).join('');
+
+      return `
+        <div class="rank-item">
+          <div class="rank-pos">${medal}</div>
+          <div class="rank-info">
+            <div class="rank-name">${a.emoji} ${a.name}</div>
+            <div class="rank-bar-wrap"><div class="rank-bar" style="width:${pct}%"></div></div>
+            <div class="rank-who">${chips}</div>
+          </div>
+          <div class="rank-right">
+            <div class="rank-count">${count}</div>
+            <div class="rank-max">de ${maxVotes}</div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  function renderAll(){
+    renderVotes();
+    renderRanking();
+  }
+
+  renderAll();
+</script>
+</body>
+</html>
