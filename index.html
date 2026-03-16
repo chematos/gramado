@@ -4,6 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gramado + Canela (Semana Santa) — Plan familiar (criba de parques)</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Gramado 2026" />
+  <link rel="apple-touch-icon" href="icon.svg" />
   <style>
     :root{
       --bg:#0b0f14; --card:#121823; --muted:#9fb0c3; --text:#e8f0fa;
@@ -67,11 +73,10 @@
     <div class="meta">
       <span class="pill">🎯 Edad objetivo: 3–10</span>
       <a class="pill" href="gramado_lagos.html" style="color:var(--text);text-decoration:none">🌊 Ver página: Lagos (Negro + Joaquina)</a>
-      <a class="pill" href="plan_actividades.html" style="color:var(--text);text-decoration:none">🗳️ Votar actividades</a>
-      <a class="pill" href="itinerario_a.html" style="color:var(--text);text-decoration:none">🅰️ Itinerario Opción A</a>
-      <a class="pill" href="itinerario_b.html" style="color:var(--text);text-decoration:none">🅱️ Itinerario Opción B</a>
       <a class="pill" href="itinerario_final.html" style="color:#fbbf24;text-decoration:none;border-color:rgba(251,191,36,.3)">⭐ Itinerario Definitivo</a>
       <a class="pill" href="restaurantes.html" style="color:var(--text);text-decoration:none">🍽️ Restaurantes</a>
+      <a class="pill" href="plan_actividades.html" style="color:var(--text);text-decoration:none">🗳️ Actividades</a>
+      <a class="pill" href="gramado_lagos.html" style="color:var(--text);text-decoration:none">🌊 Lagos</a>
       <span class="pill">⏱️ Preferencia: baja espera / alta “capacidad”</span>
       <span class="pill">🧩 Formato: 1 día = 1 parque (con niños)</span>
       <span class="pill">🧤 Llevar: abrigo/ropa extra + snacks + cochecito (según parque)</span>
@@ -110,8 +115,7 @@
 
 <footer>
   <div class="wrap">
-    Hecho para planificar rápido. <a href=”gramado_lagos.html”>Abrir página de Lagos</a> · <a href=”itinerario_a.html”>Ver Itinerario Opción A</a>. Próximos pasos sugeridos: (1) elegir 3–4 “must” para los niños, (2) armar agenda día por día,
-    (3) logística: traslados + comidas + si conviene comprar combos.
+    ⬅️ <a href=”itinerario_final.html”>⭐ Itinerario Definitivo</a> · <a href=”restaurantes.html”>Restaurantes</a> · <a href=”plan_actividades.html”>Actividades</a> · <a href=”gramado_lagos.html”>Lagos</a>
   </div>
 </footer>
 
@@ -312,5 +316,6 @@
   indoor.addEventListener('change', render);
   render();
 </script>
+<script>if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');</script>
 </body>
 </html>

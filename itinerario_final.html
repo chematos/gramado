@@ -4,6 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Itinerario Definitivo — Gramado + Canela (Semana Santa 2026)</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Gramado 2026" />
+  <link rel="apple-touch-icon" href="icon.svg" />
   <style>
     :root{
       --bg:#0b0f14; --card:#121823; --muted:#9fb0c3; --text:#e8f0fa;
@@ -102,10 +108,9 @@
       <br/>3 familias · 6 adultos + 6 niños (3–10 años) · salida desde Montevideo.
     </div>
     <div class="meta">
-      <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">🎯 Ver parques</a>
-      <a class="pill" href="itinerario_a.html" style="color:var(--text);text-decoration:none">🅰️ Opción A</a>
-      <a class="pill" href="itinerario_b.html" style="color:var(--text);text-decoration:none">🅱️ Opción B</a>
-      <a class="pill" href="plan_actividades.html" style="color:var(--text);text-decoration:none">🗳️ Votar actividades</a>
+      <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">🎯 Parques</a>
+      <a class="pill" href="gramado_lagos.html" style="color:var(--text);text-decoration:none">🌊 Lagos</a>
+      <a class="pill" href="plan_actividades.html" style="color:var(--text);text-decoration:none">🗳️ Actividades</a>
       <a class="pill" href="restaurantes.html" style="color:var(--text);text-decoration:none">🍽️ Restaurantes</a>
       <span class="pill">📅 29 mar – 3 abr 2026</span>
       <span class="pill">👨‍👩‍👧‍👦 3 familias · 12 personas</span>
@@ -661,6 +666,11 @@
   }
 
   renderVotes();
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js');
+  }
 </script>
 </body>
 </html>

@@ -1,0 +1,43 @@
+{
+  "name": "Gramado + Canela — Semana Santa 2026",
+  "short_name": "Gramado 2026",
+  "description": "Guía de viaje familiar. 3 familias, 6 adultos, 6 niños. 29 mar – 3 abr 2026.",
+  "start_url": "./itinerario_final.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "orientation": "portrait",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Itinerario",
+      "url": "./itinerario_final.html",
+      "description": "Ver el plan día a día"
+    },
+    {
+      "name": "Restaurantes",
+      "url": "./restaurantes.html",
+      "description": "Comidas del viaje"
+    },
+    {
+      "name": "Actividades",
+      "url": "./plan_actividades.html",
+      "description": "Votación de actividades"
+    }
+  ]
+}

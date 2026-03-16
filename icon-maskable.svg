@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Maskable: safe zone is center 80% — keep key content within 204,204 → 308,308 -->
+  <rect width="512" height="512" fill="#0b0f14"/>
+  <rect width="512" height="300" fill="#0d1520" y="0"/>
+  <circle cx="100" cy="90"  r="3"   fill="#fbbf24" opacity=".8"/>
+  <circle cx="400" cy="70"  r="2.5" fill="#fbbf24" opacity=".7"/>
+  <circle cx="300" cy="50"  r="2"   fill="#e8f0fa" opacity=".6"/>
+  <polygon points="50,310  200,120 350,310"  fill="#1f9d6a" opacity=".85"/>
+  <polygon points="180,310 340,150 512,310"  fill="#17845a" opacity=".9"/>
+  <polygon points="200,120 218,158 182,158" fill="#e8f0fa" opacity=".65"/>
+  <polygon points="340,150 356,185 324,185" fill="#e8f0fa" opacity=".55"/>
+  <rect x="0" y="308" width="512" height="204" fill="#0b1a10"/>
+  <text x="256" y="406" font-family="system-ui,-apple-system,sans-serif"
+        font-size="88" font-weight="900" fill="#fbbf24"
+        text-anchor="middle" letter-spacing="1">GRAMADO</text>
+  <text x="256" y="464" font-family="system-ui,-apple-system,sans-serif"
+        font-size="32" font-weight="500" fill="#9fb0c3"
+        text-anchor="middle">Semana Santa 2026</text>
+</svg>

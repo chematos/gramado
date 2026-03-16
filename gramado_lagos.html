@@ -4,6 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gramado — Lagos (Lago Negro + Joaquina Rita Bier) | Plan familiar</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Gramado 2026" />
+  <link rel="apple-touch-icon" href="icon.svg" />
   <style>
     :root{
       --bg:#0b0f14; --card:#121823; --muted:#9fb0c3; --text:#e8f0fa;
@@ -58,7 +64,9 @@
       En Semana Santa: lo mejor es <b>ir temprano</b> y llevar snacks para evitar filas de cafeterías.
     </div>
     <div class="meta">
-      <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">⬅️ Volver a Parques</a>
+      <a class="pill" href="itinerario_final.html" style="color:#fbbf24;text-decoration:none;border-color:rgba(251,191,36,.3)">⭐ Itinerario Definitivo</a>
+      <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">🎯 Parques</a>
+      <a class="pill" href="restaurantes.html" style="color:var(--text);text-decoration:none">🍽️ Restaurantes</a>
       <span class="pill">🧺 Llevar: manta + snacks + repelente</span>
       <span class="pill">🧒 Niños: ideal 3–10</span>
       <span class="pill">⏱️ Duración sugerida: 1,5–2,5 h</span>
@@ -199,5 +207,6 @@
     <br/>⬅️ <a href="index.html">Volver a la página de Parques</a>
   </div>
 </footer>
+<script>if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');</script>
 </body>
 </html>

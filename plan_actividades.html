@@ -4,6 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Plan de actividades — Gramado Semana Santa 2026</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Gramado 2026" />
+  <link rel="apple-touch-icon" href="icon.svg" />
   <style>
     :root{
       --bg:#0b0f14; --card:#121823; --muted:#9fb0c3; --text:#e8f0fa;
@@ -105,10 +111,10 @@
     </div>
     <div class="meta">
       <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">🎯 Ver parques</a>
-      <a class="pill" href="itinerario_a.html" style="color:var(--text);text-decoration:none">🅰️ Opción A</a>
-      <a class="pill" href="itinerario_b.html" style="color:var(--text);text-decoration:none">🅱️ Opción B</a>
       <a class="pill" href="itinerario_final.html" style="color:#fbbf24;text-decoration:none;border-color:rgba(251,191,36,.3)">⭐ Itinerario Definitivo</a>
       <a class="pill" href="restaurantes.html" style="color:var(--text);text-decoration:none">🍽️ Restaurantes</a>
+      <a class="pill" href="index.html" style="color:var(--text);text-decoration:none">🎯 Parques</a>
+      <a class="pill" href="gramado_lagos.html" style="color:var(--text);text-decoration:none">🌊 Lagos</a>
       <span class="pill">📅 29 mar – 3 abr 2026</span>
       <span class="pill">👥 Nano · Ina · Martín · Caro · Emi · Chema</span>
     </div>
@@ -562,7 +568,7 @@
 <footer>
   <div class="wrap">
     Cuando terminen de votar, compartí el resultado y armamos el itinerario definitivo.
-    <br/>⬅️ <a href="index.html">Ver parques en detalle</a> · <a href="itinerario_a.html">Opción A</a> · <a href="itinerario_b.html">Opción B</a>
+    <br/>⬅️ <a href="itinerario_final.html">⭐ Itinerario Definitivo</a> · <a href="restaurantes.html">Restaurantes</a> · <a href="index.html">Parques</a>
   </div>
 </footer>
 
@@ -785,5 +791,6 @@
 
   renderAll();
 </script>
+<script>if('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js');</script>
 </body>
 </html>
